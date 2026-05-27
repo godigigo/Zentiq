@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0b1220;
+  --color-primary: #22d3ee;
+  --color-dark: #0b1220;
+  --site-padding-x: clamp(24px, 8vw, 120px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-dark);
+}
+
+/* ─── Global section wrapper ─────────────────────────────────────────────── */
+/* Add class="site-container" to every section's inner div.
+   This gives every page the same 100px–120px left/right margin automatically. */
+.site-container {
+  width: 100%;
+  padding-left: var(--site-padding-x);
+  padding-right: var(--site-padding-x);
+}
