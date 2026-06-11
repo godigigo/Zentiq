@@ -50,20 +50,11 @@ export default function Navbar() {
 
     if (servicesOpen) {
       gsap.killTweensOf(dropdownRef.current);
-      gsap.set(dropdownRef.current, {
-        display: "block",
-        pointerEvents: "auto",
-      });
+      gsap.set(dropdownRef.current, { display: "block", pointerEvents: "auto" });
       gsap.fromTo(
         dropdownRef.current,
         { opacity: 0, y: 10, scale: 0.985 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.22,
-          ease: "power2.out",
-        }
+        { opacity: 1, y: 0, scale: 1, duration: 0.22, ease: "power2.out" }
       );
     } else {
       gsap.killTweensOf(dropdownRef.current);
@@ -75,10 +66,7 @@ export default function Navbar() {
         ease: "power2.out",
         onComplete: () => {
           if (dropdownRef.current) {
-            gsap.set(dropdownRef.current, {
-              display: "none",
-              pointerEvents: "none",
-            });
+            gsap.set(dropdownRef.current, { display: "none", pointerEvents: "none" });
           }
         },
       });
@@ -90,10 +78,7 @@ export default function Navbar() {
 
     if (mobileOpen) {
       gsap.killTweensOf(mobilePanelRef.current);
-      gsap.set(mobilePanelRef.current, {
-        display: "block",
-        pointerEvents: "auto",
-      });
+      gsap.set(mobilePanelRef.current, { display: "block", pointerEvents: "auto" });
       gsap.fromTo(
         mobilePanelRef.current,
         { opacity: 0, y: -10 },
@@ -108,10 +93,7 @@ export default function Navbar() {
         ease: "power2.out",
         onComplete: () => {
           if (mobilePanelRef.current) {
-            gsap.set(mobilePanelRef.current, {
-              display: "none",
-              pointerEvents: "none",
-            });
+            gsap.set(mobilePanelRef.current, { display: "none", pointerEvents: "none" });
           }
         },
       });
@@ -152,6 +134,7 @@ export default function Navbar() {
         ref={navRef}
         className="site-container flex h-[62px] items-center justify-between rounded-[18px] border border-white/12 bg-[#07111d]/88 px-4 text-white shadow-[0_10px_30px_rgba(0,0,0,0.18)] backdrop-blur-xl md:h-[66px] md:px-5"
       >
+        {/* ── Logo ── */}
         <Link
           href="/"
           ref={logoRef}
@@ -172,7 +155,6 @@ export default function Navbar() {
               <path d="M8.5 17h7" />
             </svg>
           </div>
-
           <div className="flex flex-col">
             <span
               className={`${unbounded.className} text-[0.94rem] font-[500] leading-none tracking-[-0.05em] text-white`}
@@ -185,8 +167,10 @@ export default function Navbar() {
           </div>
         </Link>
 
+        {/* ── Desktop Nav ── */}
         <div className="hidden items-center lg:flex">
           <div className="flex items-center gap-0.5">
+            {/* Home */}
             <Link
               href="/"
               ref={(el) => (linksRef.current[0] = el)}
@@ -195,6 +179,7 @@ export default function Navbar() {
               Home
             </Link>
 
+            {/* About */}
             <Link
               href="/about"
               ref={(el) => (linksRef.current[1] = el)}
@@ -203,6 +188,7 @@ export default function Navbar() {
               About Us
             </Link>
 
+            {/* Services dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
@@ -259,19 +245,39 @@ export default function Navbar() {
                 ))}
               </div>
             </div>
+
+            {/* ── NEW: Marketplace ── */}
+            <Link
+              href="/marketplace"
+              ref={(el) => (linksRef.current[3] = el)}
+              className="inline-flex h-[38px] items-center rounded-[10px] px-3.5 text-[13px] font-medium text-white/90 transition-all duration-200 hover:bg-white/8 hover:text-white"
+            >
+              Marketplace
+            </Link>
+
+            {/* ── NEW: Pricing ── */}
+            <Link
+              href="/pricing"
+              ref={(el) => (linksRef.current[4] = el)}
+              className="inline-flex h-[38px] items-center rounded-[10px] px-3.5 text-[13px] font-medium text-white/90 transition-all duration-200 hover:bg-white/8 hover:text-white"
+            >
+              Pricing
+            </Link>
           </div>
 
           <div className="ml-5 flex items-center gap-2.5">
+            {/* Contact CTA */}
             <Link
               href="/contact"
-              ref={(el) => (linksRef.current[3] = el)}
+              ref={(el) => (linksRef.current[5] = el)}
               className="inline-flex h-[40px] items-center justify-center rounded-[12px] bg-[#22D3EE] px-5 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.18),0_10px_24px_rgba(34,211,238,0.18)] transition-all duration-200 hover:translate-y-[-1px] hover:bg-[#38e4f7]"
             >
               Contact Us
             </Link>
 
+            {/* Social icons */}
             <div
-              ref={(el) => (linksRef.current[4] = el)}
+              ref={(el) => (linksRef.current[6] = el)}
               className="flex items-center gap-1"
             >
               <Link
@@ -295,7 +301,6 @@ export default function Navbar() {
                   <circle cx="12" cy="12" r="4" />
                 </svg>
               </Link>
-
               <Link
                 href="https://facebook.com"
                 target="_blank"
@@ -303,11 +308,7 @@ export default function Navbar() {
                 aria-label="Facebook"
                 className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-[10px] text-white/68 transition-all duration-200 hover:bg-white/6 hover:text-white"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-[15px] w-[15px]"
-                  fill="currentColor"
-                >
+                <svg viewBox="0 0 24 24" className="h-[15px] w-[15px]" fill="currentColor">
                   <path d="M13.5 21v-7h2.3l.4-2.7h-2.7V9.6c0-.8.2-1.3 1.4-1.3H16V5.9c-.2 0-.9-.1-1.8-.1-1.8 0-3.1 1.1-3.1 3.2v2.3H9v2.7h2.3v7h2.2Z" />
                 </svg>
               </Link>
@@ -315,6 +316,7 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* ── Mobile Hamburger ── */}
         <button
           type="button"
           onClick={() => setMobileOpen((prev) => !prev)}
@@ -346,6 +348,7 @@ export default function Navbar() {
         </button>
       </nav>
 
+      {/* ── Mobile Panel ── */}
       <div
         ref={mobilePanelRef}
         className="site-container mt-3 hidden rounded-[18px] border border-white/12 bg-[#07111d]/94 p-3 text-white shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl lg:hidden"
@@ -367,6 +370,7 @@ export default function Navbar() {
             About Us
           </Link>
 
+          {/* Services group */}
           <div className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white">
             <div className="mb-3 text-white/92">Services</div>
             <div className="space-y-1">
@@ -382,6 +386,24 @@ export default function Navbar() {
               ))}
             </div>
           </div>
+
+          {/* ── NEW: Marketplace (mobile) ── */}
+          <Link
+            href="/marketplace"
+            className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
+            onClick={() => setMobileOpen(false)}
+          >
+            Marketplace
+          </Link>
+
+          {/* ── NEW: Pricing (mobile) ── */}
+          <Link
+            href="/pricing"
+            className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
+            onClick={() => setMobileOpen(false)}
+          >
+            Pricing
+          </Link>
 
           <Link
             href="/contact"
@@ -413,7 +435,6 @@ export default function Navbar() {
                 <circle cx="12" cy="12" r="4" />
               </svg>
             </Link>
-
             <Link
               href="https://facebook.com"
               target="_blank"
@@ -421,11 +442,7 @@ export default function Navbar() {
               aria-label="Facebook"
               className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-[10px] text-white/68 transition-all duration-200 hover:bg-white/6 hover:text-white"
             >
-              <svg
-                viewBox="0 0 24 24"
-                className="h-[15px] w-[15px]"
-                fill="currentColor"
-              >
+              <svg viewBox="0 0 24 24" className="h-[15px] w-[15px]" fill="currentColor">
                 <path d="M13.5 21v-7h2.3l.4-2.7h-2.7V9.6c0-.8.2-1.3 1.4-1.3H16V5.9c-.2 0-.9-.1-1.8-.1-1.8 0-3.1 1.1-3.1 3.2v2.3H9v2.7h2.3v7h2.2Z" />
               </svg>
             </Link>
