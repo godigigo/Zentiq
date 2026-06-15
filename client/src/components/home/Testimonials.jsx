@@ -35,16 +35,16 @@ const TESTIMONIALS_RIGHT = [
   {
     id: 4,
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-    name: "Name Surname",
-    meta: "Position, Company name",
+      "Our move felt organized from the very first call. The crew arrived prepared, packed everything carefully, and delivered exactly when promised.",
+    name: "Daniel Brooks",
+    meta: "Ottawa, Ontario",
   },
   {
     id: 5,
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
-    name: "Name Surname",
-    meta: "Position, Company name",
+      "Clear communication, fair pricing, and zero stress on moving day. That combination is rare, and they absolutely delivered.",
+    name: "Olivia Martin",
+    meta: "Montreal, Quebec",
   },
 ];
 
@@ -55,7 +55,7 @@ function Stars() {
         <svg
           key={i}
           viewBox="0 0 16 16"
-          className="h-[14px] w-[14px] fill-white/80"
+          className="h-[14px] w-[14px] fill-[#3B82F6]/90"
           aria-hidden="true"
         >
           <path d="M8 1.3l1.8 3.64 4.02.58-2.91 2.84.69 4.01L8 10.48 4.4 12.37l.69-4.01L2.18 5.52l4.02-.58L8 1.3Z" />
@@ -75,20 +75,20 @@ function TestimonialCard({ quote, name, meta, cardRef }) {
   return (
     <article
       ref={cardRef}
-      className="group relative overflow-hidden rounded-[22px] border border-white/[0.08] bg-[#0d545f] px-6 py-6 shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-[border-color,box-shadow,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:border-white/[0.12] hover:shadow-[0_14px_36px_rgba(0,0,0,0.20)]"
+      className="group relative overflow-hidden rounded-[22px] border border-[#3B82F6]/12 bg-[#0d1a34] px-6 py-6 shadow-[0_8px_24px_rgba(0,0,0,0.24)] transition-[border-color,box-shadow,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:border-[#3B82F6]/22 hover:shadow-[0_14px_36px_rgba(0,0,0,0.32)]"
       style={{ transformStyle: "preserve-3d" }}
     >
-      <div className="pointer-events-none absolute inset-0 rounded-[22px] bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.05),transparent_55%)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/10" />
+      <div className="pointer-events-none absolute inset-0 rounded-[22px] bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.16),transparent_58%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[#3B82F6]/16" />
 
       <Stars />
 
-      <p className="relative z-[1] text-[15px] leading-[1.68] text-white/86">
+      <p className="relative z-[1] text-[15px] leading-[1.68] text-white/88">
         "{quote}"
       </p>
 
       <div className="relative z-[1] mt-6 flex items-center gap-3">
-        <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full bg-[#1a8596]/60 text-[12px] font-semibold tracking-wide text-white ring-1 ring-white/14 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]">
+        <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full bg-[#3B82F6]/16 text-[12px] font-semibold tracking-wide text-white ring-1 ring-[#3B82F6]/26 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]">
           {initials}
         </div>
 
@@ -96,7 +96,7 @@ function TestimonialCard({ quote, name, meta, cardRef }) {
           <p className="text-[14px] font-semibold leading-snug text-white">
             {name}
           </p>
-          <p className="mt-[3px] text-[13px] leading-snug text-white/60">
+          <p className="mt-[3px] text-[13px] leading-snug text-white/62">
             {meta}
           </p>
         </div>
@@ -244,6 +244,7 @@ export default function Testimonials() {
             rotateX: 0,
             rotateY: 0,
             y: 0,
+            scale: 1,
             duration: 0.45,
             ease: "power3.out",
             overwrite: true,
@@ -331,19 +332,19 @@ export default function Testimonials() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#0a3f47] text-white"
+      className="relative overflow-hidden bg-[#081225] text-white"
     >
       {/* Ambient glows */}
       <div className="pointer-events-none absolute inset-0">
         <div
           ref={glowLeftRef}
-          className="absolute left-[-8%] top-[4%] h-[380px] w-[380px] rounded-full bg-[#18c4d8]/8 blur-[120px]"
+          className="absolute left-[-8%] top-[4%] h-[380px] w-[380px] rounded-full bg-[#3B82F6]/12 blur-[120px]"
         />
         <div
           ref={glowRightRef}
-          className="absolute bottom-[-10%] right-[-4%] h-[340px] w-[340px] rounded-full bg-[#14b8ca]/10 blur-[100px]"
+          className="absolute bottom-[-10%] right-[-4%] h-[340px] w-[340px] rounded-full bg-[#3B82F6]/10 blur-[100px]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02)_0%,rgba(255,255,255,0)_24%,rgba(255,255,255,0.018)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02)_0%,rgba(255,255,255,0)_24%,rgba(59,130,246,0.04)_100%)]" />
       </div>
 
       <div className="site-container relative z-10 py-[72px] md:py-[88px]">
@@ -360,9 +361,9 @@ export default function Testimonials() {
 
           <p
             ref={copyRef}
-            className="mx-auto mt-5 text-[14px] font-medium leading-[1.6] text-white/60"
+            className="mx-auto mt-5 text-[14px] font-medium leading-[1.6] text-white/64"
           >
-            Real stories from people we've moved
+            Real stories from people we&apos;ve moved
           </p>
         </div>
 

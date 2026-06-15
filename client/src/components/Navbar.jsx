@@ -155,6 +155,7 @@ export default function Navbar() {
               <path d="M8.5 17h7" />
             </svg>
           </div>
+
           <div className="flex flex-col">
             <span
               className={`${unbounded.className} text-[0.94rem] font-[500] leading-none tracking-[-0.05em] text-white`}
@@ -170,7 +171,6 @@ export default function Navbar() {
         {/* ── Desktop Nav ── */}
         <div className="hidden items-center lg:flex">
           <div className="flex items-center gap-0.5">
-            {/* Home */}
             <Link
               href="/"
               ref={(el) => (linksRef.current[0] = el)}
@@ -179,7 +179,6 @@ export default function Navbar() {
               Home
             </Link>
 
-            {/* About */}
             <Link
               href="/about"
               ref={(el) => (linksRef.current[1] = el)}
@@ -188,7 +187,6 @@ export default function Navbar() {
               About Us
             </Link>
 
-            {/* Services dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
@@ -246,19 +244,33 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* ── NEW: Marketplace ── */}
+            <Link
+              href="/business"
+              ref={(el) => (linksRef.current[3] = el)}
+              className="inline-flex h-[38px] items-center rounded-[10px] px-3.5 text-[13px] font-medium text-white/90 transition-all duration-200 hover:bg-white/8 hover:text-white"
+            >
+              For Business
+            </Link>
+
+            <Link
+              href="/movers"
+              ref={(el) => (linksRef.current[4] = el)}
+              className="inline-flex h-[38px] items-center rounded-[10px] px-3.5 text-[13px] font-medium text-white/90 transition-all duration-200 hover:bg-white/8 hover:text-white"
+            >
+              For Movers
+            </Link>
+
             <Link
               href="/marketplace"
-              ref={(el) => (linksRef.current[3] = el)}
+              ref={(el) => (linksRef.current[5] = el)}
               className="inline-flex h-[38px] items-center rounded-[10px] px-3.5 text-[13px] font-medium text-white/90 transition-all duration-200 hover:bg-white/8 hover:text-white"
             >
               Marketplace
             </Link>
 
-            {/* ── NEW: Pricing ── */}
             <Link
               href="/pricing"
-              ref={(el) => (linksRef.current[4] = el)}
+              ref={(el) => (linksRef.current[6] = el)}
               className="inline-flex h-[38px] items-center rounded-[10px] px-3.5 text-[13px] font-medium text-white/90 transition-all duration-200 hover:bg-white/8 hover:text-white"
             >
               Pricing
@@ -266,18 +278,16 @@ export default function Navbar() {
           </div>
 
           <div className="ml-5 flex items-center gap-2.5">
-            {/* Contact CTA */}
             <Link
               href="/contact"
-              ref={(el) => (linksRef.current[5] = el)}
+              ref={(el) => (linksRef.current[7] = el)}
               className="inline-flex h-[40px] items-center justify-center rounded-[12px] bg-[#22D3EE] px-5 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.18),0_10px_24px_rgba(34,211,238,0.18)] transition-all duration-200 hover:translate-y-[-1px] hover:bg-[#38e4f7]"
             >
               Contact Us
             </Link>
 
-            {/* Social icons */}
             <div
-              ref={(el) => (linksRef.current[6] = el)}
+              ref={(el) => (linksRef.current[8] = el)}
               className="flex items-center gap-1"
             >
               <Link
@@ -301,6 +311,7 @@ export default function Navbar() {
                   <circle cx="12" cy="12" r="4" />
                 </svg>
               </Link>
+
               <Link
                 href="https://facebook.com"
                 target="_blank"
@@ -308,7 +319,11 @@ export default function Navbar() {
                 aria-label="Facebook"
                 className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-[10px] text-white/68 transition-all duration-200 hover:bg-white/6 hover:text-white"
               >
-                <svg viewBox="0 0 24 24" className="h-[15px] w-[15px]" fill="currentColor">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-[15px] w-[15px]"
+                  fill="currentColor"
+                >
                   <path d="M13.5 21v-7h2.3l.4-2.7h-2.7V9.6c0-.8.2-1.3 1.4-1.3H16V5.9c-.2 0-.9-.1-1.8-.1-1.8 0-3.1 1.1-3.1 3.2v2.3H9v2.7h2.3v7h2.2Z" />
                 </svg>
               </Link>
@@ -370,7 +385,6 @@ export default function Navbar() {
             About Us
           </Link>
 
-          {/* Services group */}
           <div className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white">
             <div className="mb-3 text-white/92">Services</div>
             <div className="space-y-1">
@@ -387,7 +401,22 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* ── NEW: Marketplace (mobile) ── */}
+          <Link
+            href="/business"
+            className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
+            onClick={() => setMobileOpen(false)}
+          >
+            For Business
+          </Link>
+
+          <Link
+            href="/movers"
+            className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
+            onClick={() => setMobileOpen(false)}
+          >
+            For Movers
+          </Link>
+
           <Link
             href="/marketplace"
             className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
@@ -396,7 +425,6 @@ export default function Navbar() {
             Marketplace
           </Link>
 
-          {/* ── NEW: Pricing (mobile) ── */}
           <Link
             href="/pricing"
             className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
@@ -435,6 +463,7 @@ export default function Navbar() {
                 <circle cx="12" cy="12" r="4" />
               </svg>
             </Link>
+
             <Link
               href="https://facebook.com"
               target="_blank"
