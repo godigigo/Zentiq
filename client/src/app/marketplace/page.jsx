@@ -27,15 +27,15 @@ const forClients = [
 ];
 
 const stats = [
-  { value: 1200, display: "1,200+", label: "Verified Mover Partners",    color: "#22D3EE" },
-  { value: 38,   display: "38",     label: "States & Provinces Covered", color: "#22D3EE" },
+  { value: 1200, display: "1,200+", label: "Verified Mover Partners",    color: "#004FEC" },
+  { value: 38,   display: "38",     label: "States & Provinces Covered", color: "#004FEC" },
   { value: 2.4,  display: "$2.4M",  label: "Avg Monthly Lead Value",     color: "#4ade80" },
   { value: 72,   display: "72hrs",  label: "Avg Lead-to-Book Time",      color: "#facc15" },
   { value: 99.1, display: "99.1%",  label: "Marketplace Uptime SLA",     color: "#a78bfa" },
 ];
 
 const steps = [
-  { number: "1", label: "Client",       sub: "Submits Move",    color: "#22D3EE" },
+  { number: "1", label: "Client",       sub: "Submits Move",    color: "#004FEC" },
   { number: "2", label: "Zentiq AI",    sub: "Matches Movers",  color: "#818cf8" },
   { number: "3", label: "Movers",       sub: "Submit Quotes",   color: "#a78bfa" },
   { number: "4", label: "Client",       sub: "Selects & Books", color: "#34d399" },
@@ -327,7 +327,7 @@ export default function MarketplacePage() {
         <div className="site-container relative z-10 py-28 text-center md:py-32">
           <p
             data-hero-tag
-            className="mb-6 inline-flex items-center gap-3 rounded-full border border-[#22D3EE]/22 bg-[#22D3EE]/10 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8ef4ff]"
+            className="mb-6 inline-flex items-center gap-3 rounded-full border border-[#004FEC]/22 bg-[#004FEC]/10 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8ef4ff]"
           >
             Zentiq Marketplace & Mover Network
           </p>
@@ -368,13 +368,13 @@ export default function MarketplacePage() {
             >
               <div
                 data-inner-glow
-                className="pointer-events-none absolute left-0 top-0 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22D3EE]/16 opacity-0 blur-[60px]"
+                className="pointer-events-none absolute left-0 top-0 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#004FEC]/16 opacity-0 blur-[60px]"
               />
-              <div className="pointer-events-none absolute -left-10 top-0 h-40 w-40 rounded-full bg-[#22D3EE]/10 blur-[80px]" />
+              <div className="pointer-events-none absolute -left-10 top-0 h-40 w-40 rounded-full bg-[#004FEC]/10 blur-[80px]" />
 
               <div className="relative z-10">
-                <div className="mb-7 inline-flex rounded-[12px] border border-[#22D3EE]/25 bg-[#22D3EE]/12 px-4 py-2">
-                  <span className={`${unbounded.className} text-[0.85rem] font-[500] tracking-[-0.02em] text-[#22D3EE]`}>
+                <div className="mb-7 inline-flex rounded-[12px] border border-[#004FEC]/25 bg-[#004FEC]/12 px-4 py-2">
+                  <span className={`${unbounded.className} text-[0.85rem] font-[500] tracking-[-0.02em] text-[#004FEC]`}>
                     For Moving Companies
                   </span>
                 </div>
@@ -382,7 +382,7 @@ export default function MarketplacePage() {
                 <div className="space-y-5">
                   {forMovers.map((item) => (
                     <div key={item.title} className="flex items-start gap-3.5">
-                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#22D3EE] shadow-[0_0_10px_rgba(34,211,238,0.80)]" />
+                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#004FEC] shadow-[0_0_10px_rgba(34,211,238,0.80)]" />
                       <div>
                         <p className={`${unbounded.className} text-[0.9rem] font-[500] tracking-[-0.03em] text-white`}>
                           {item.title}
@@ -395,12 +395,12 @@ export default function MarketplacePage() {
                   ))}
                 </div>
 
-                <div className="mt-8 h-px w-full bg-gradient-to-r from-[#22D3EE]/30 via-white/8 to-transparent" />
+                <div className="mt-8 h-px w-full bg-gradient-to-r from-[#004FEC]/30 via-white/8 to-transparent" />
 
                 <Link
                   ref={(el) => (magneticRefs.current[0] = el)}
                   href="/contact"
-                  className="mt-6 inline-flex h-[48px] w-full items-center justify-center rounded-[14px] bg-[#22D3EE] text-[13px] font-semibold text-[#07111d] shadow-[0_10px_30px_rgba(34,211,238,0.24)] transition-all duration-200 hover:bg-[#43dff4]"
+                  className="mt-6 inline-flex h-[48px] w-full items-center justify-center rounded-[14px] bg-[#004FEC] text-[13px] font-semibold text-[#07111d] shadow-[0_10px_30px_rgba(34,211,238,0.24)] transition-all duration-200 hover:bg-[#43dff4]"
                 >
                   Join the Mover Network →
                 </Link>
@@ -582,9 +582,9 @@ export default function MarketplacePage() {
           >
             <div
               data-inner-glow
-              className="pointer-events-none absolute left-0 top-0 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22D3EE]/16 opacity-0 blur-[60px]"
+              className="pointer-events-none absolute left-0 top-0 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#004FEC]/16 opacity-0 blur-[60px]"
             />
-            <div className="absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#22D3EE]/12 blur-[80px]" />
+            <div className="absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#004FEC]/12 blur-[80px]" />
             <div className="absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#818cf8]/10 blur-[90px]" />
             <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.10)_1px,transparent_1px)] [background-size:52px_52px]" />
 
@@ -606,7 +606,7 @@ export default function MarketplacePage() {
                 <Link
                   ref={(el) => (magneticRefs.current[2] = el)}
                   href="/contact"
-                  className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#22D3EE] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4] hover:-translate-y-[1px]"
+                  className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4] hover:-translate-y-[1px]"
                 >
                   Join the Network
                 </Link>

@@ -24,7 +24,7 @@ const crmFeatures = [
   {
     title: "Quote Builder",
     text: "Create & send branded quotes in minutes with e-signature.",
-    color: "#22D3EE",
+    color: "#004FEC",
   },
   {
     title: "Auto Follow-ups",
@@ -42,9 +42,9 @@ const opsFeatures = [
   {
     title: "Smart Dispatch",
     text: "AI job-crew matching",
-    color: "#22D3EE",
-    bg: "bg-[#22D3EE]/10",
-    border: "border-[#22D3EE]/20",
+    color: "#004FEC",
+    bg: "bg-[#004FEC]/10",
+    border: "border-[#004FEC]/20",
   },
   {
     title: "Route Optimizer",
@@ -93,9 +93,9 @@ const chartBars = [
   { height: 28, color: "#2563eb" },
   { height: 44, color: "#3b82f6" },
   { height: 36, color: "#2563eb" },
-  { height: 52, color: "#22D3EE" },
+  { height: 52, color: "#004FEC" },
   { height: 45, color: "#2563eb" },
-  { height: 66, color: "#22D3EE" },
+  { height: 66, color: "#004FEC" },
   { height: 58, color: "#2563eb" },
 ];
 
@@ -588,13 +588,13 @@ export default function MoversPage() {
             >
               <div
                 data-inner-glow
-                className="pointer-events-none absolute left-0 top-0 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22D3EE]/16 opacity-0 blur-[60px]"
+                className="pointer-events-none absolute left-0 top-0 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#004FEC]/16 opacity-0 blur-[60px]"
               />
-              <div className="pointer-events-none absolute -right-10 bottom-0 h-40 w-40 rounded-full bg-[#22D3EE]/10 blur-[80px]" />
+              <div className="pointer-events-none absolute -right-10 bottom-0 h-40 w-40 rounded-full bg-[#004FEC]/10 blur-[80px]" />
 
               <div className="relative z-10">
-                <div className="mb-6 inline-flex rounded-[12px] border border-[#22D3EE]/25 bg-[#22D3EE]/12 px-4 py-2">
-                  <span className={`${unbounded.className} text-[0.85rem] font-[500] tracking-[-0.02em] text-[#22D3EE]`}>
+                <div className="mb-6 inline-flex rounded-[12px] border border-[#004FEC]/25 bg-[#004FEC]/12 px-4 py-2">
+                  <span className={`${unbounded.className} text-[0.85rem] font-[500] tracking-[-0.02em] text-[#004FEC]`}>
                     Dispatch & Ops
                   </span>
                 </div>
@@ -641,7 +641,7 @@ export default function MoversPage() {
             >
               <div
                 data-inner-glow
-                className="pointer-events-none absolute left-0 top-0 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22D3EE]/14 opacity-0 blur-[60px]"
+                className="pointer-events-none absolute left-0 top-0 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#004FEC]/14 opacity-0 blur-[60px]"
               />
               <div className="pointer-events-none absolute right-0 top-0 h-36 w-36 rounded-full bg-[#2563eb]/10 blur-[80px]" />
 
@@ -740,7 +740,7 @@ export default function MoversPage() {
             <Link
               ref={(el) => (magneticRefs.current[0] = el)}
               href="/contact"
-              className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#22D3EE] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4] hover:-translate-y-[1px]"
+              className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4] hover:-translate-y-[1px]"
             >
               Book a Demo
             </Link>

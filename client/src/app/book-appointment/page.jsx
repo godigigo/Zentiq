@@ -76,7 +76,7 @@ function FieldLabel({ children }) {
 
 function CyberInput({ children }) {
   return (
-    <div className="relative rounded-[15px] border border-white/10 bg-white/[0.04] transition-all duration-200 focus-within:border-[#22D3EE]/40 focus-within:bg-white/[0.06] focus-within:shadow-[0_0_0_1px_rgba(34,211,238,0.12)]">
+    <div className="relative rounded-[15px] border border-white/10 bg-white/[0.04] transition-all duration-200 focus-within:border-[#004FEC]/40 focus-within:bg-white/[0.06] focus-within:shadow-[0_0_0_1px_rgba(34,211,238,0.12)]">
       {children}
     </div>
   );
@@ -344,7 +344,7 @@ export default function GetQuotePage() {
       <div
         ref={cursorRef}
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-0 h-[360px] w-[360px] rounded-full bg-[#22D3EE]/[0.08] blur-[95px] will-change-transform"
+        className="pointer-events-none fixed left-0 top-0 z-0 h-[360px] w-[360px] rounded-full bg-[#004FEC]/[0.08] blur-[95px] will-change-transform"
       />
 
       <div
@@ -387,7 +387,7 @@ export default function GetQuotePage() {
                 data-top-action
                 ref={(el) => (magneticRefs.current[0] = el)}
                 href="/services"
-                className="inline-flex h-[42px] items-center justify-center rounded-[12px] bg-[#22D3EE] px-5 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.18),0_10px_24px_rgba(34,211,238,0.18)] transition-all duration-200 hover:translate-y-[-1px] hover:bg-[#38e4f7]"
+                className="inline-flex h-[42px] items-center justify-center rounded-[12px] bg-[#004FEC] px-5 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.18),0_10px_24px_rgba(34,211,238,0.18)] transition-all duration-200 hover:translate-y-[-1px] hover:bg-[#0047D4]"
               >
                 Browse services
               </Link>
@@ -410,10 +410,10 @@ export default function GetQuotePage() {
                   <div
                     data-card
                     ref={(el) => (cardsRef.current[i] = el)}
-                    className="relative overflow-hidden rounded-[20px] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.065),rgba(255,255,255,0.022))] px-4 py-4 transition duration-300 hover:border-[#22D3EE]/24"
+                    className="relative overflow-hidden rounded-[20px] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.065),rgba(255,255,255,0.022))] px-4 py-4 transition duration-300 hover:border-[#004FEC]/24"
                     style={{ transformStyle: "preserve-3d" }}
                   >
-                    <div className="absolute right-0 top-0 h-16 w-16 rounded-full bg-[#22D3EE]/10 blur-[50px]" />
+                    <div className="absolute right-0 top-0 h-16 w-16 rounded-full bg-[#004FEC]/10 blur-[50px]" />
                     <div className="relative z-10">
                       <p className="text-[10px] uppercase tracking-[0.18em] text-[#8ef4ff]">
                         {item.label}
@@ -441,7 +441,7 @@ export default function GetQuotePage() {
                 className="relative overflow-hidden rounded-[26px] border border-white/12 bg-[linear-gradient(135deg,rgba(255,255,255,0.075),rgba(255,255,255,0.03))] p-5 sm:p-6 md:p-7"
               >
                 <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:24px_24px]" />
-                <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-[#22D3EE]/10 blur-[80px]" />
+                <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-[#004FEC]/10 blur-[80px]" />
 
                 <form onSubmit={handleSubmit} noValidate className="relative z-10 space-y-4">
                   {error ? (
@@ -451,7 +451,7 @@ export default function GetQuotePage() {
                   ) : null}
 
                   {submitted ? (
-                    <div className="rounded-[14px] border border-[#22D3EE]/28 bg-[#22D3EE]/10 px-4 py-3 text-[13px] leading-snug text-[#baf8ff]">
+                    <div className="rounded-[14px] border border-[#004FEC]/28 bg-[#004FEC]/10 px-4 py-3 text-[13px] leading-snug text-[#baf8ff]">
                       Quote request received — our team will be in touch shortly.
                     </div>
                   ) : null}
@@ -640,7 +640,7 @@ export default function GetQuotePage() {
                     <button
                       ref={(el) => (magneticRefs.current[2] = el)}
                       type="submit"
-                      className="inline-flex h-[50px] shrink-0 items-center justify-center rounded-[15px] bg-[#22D3EE] px-7 text-[13px] font-semibold text-[#07111d] shadow-[0_14px_34px_rgba(34,211,238,0.26)] transition duration-200 hover:bg-[#43dff4] hover:shadow-[0_18px_40px_rgba(34,211,238,0.34)]"
+                      className="inline-flex h-[50px] shrink-0 items-center justify-center rounded-[15px] bg-[#004FEC] px-7 text-[13px] font-semibold text-[#07111d] shadow-[0_14px_34px_rgba(34,211,238,0.26)] transition duration-200 hover:bg-[#43dff4] hover:shadow-[0_18px_40px_rgba(34,211,238,0.34)]"
                     >
                       Submit Quote Request
                     </button>

@@ -157,7 +157,7 @@ export default function About() {
               >
                 <span
                   ref={lineRef}
-                  className="inline-block h-px w-8 bg-[#22D3EE]/65"
+                  className="inline-block h-px w-8 bg-[#004FEC]/65"
                 />
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/52">
                   About Us
@@ -192,7 +192,7 @@ export default function About() {
                 <a
                   href="#contact"
                   data-btn
-                  className="inline-flex h-[44px] items-center justify-center rounded-[10px] bg-[#22D3EE] px-7 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.22),0_8px_24px_rgba(34,211,238,0.24)] transition-all duration-200 hover:bg-[#38e4f7]"
+                  className="inline-flex h-[44px] items-center justify-center rounded-[10px] bg-[#004FEC] px-7 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.22),0_8px_24px_rgba(34,211,238,0.24)] transition-all duration-200 hover:bg-[#0047D4]"
                 >
                   Learn More
                 </a>
@@ -205,7 +205,7 @@ export default function About() {
         <div className="relative z-10 flex min-h-[680px] flex-col justify-between px-5 pb-10 pt-24 sm:px-6 md:hidden">
           <div className="max-w-[340px]">
             <div className="mb-5 flex items-center gap-3">
-              <span className="inline-block h-px w-7 bg-[#22D3EE]/65" />
+              <span className="inline-block h-px w-7 bg-[#004FEC]/65" />
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50">
                 About Us
               </p>
@@ -231,7 +231,7 @@ export default function About() {
             <div className="mt-7">
               <a
                 href="#contact"
-                className="inline-flex h-[44px] items-center justify-center rounded-[10px] bg-[#22D3EE] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_6px_20px_rgba(34,211,238,0.24)]"
+                className="inline-flex h-[44px] items-center justify-center rounded-[10px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_6px_20px_rgba(34,211,238,0.24)]"
               >
                 Learn More
               </a>

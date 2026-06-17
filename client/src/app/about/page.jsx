@@ -269,7 +269,7 @@ export default function AboutPage() {
               data-hero-tag
               className="mb-6 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/55"
             >
-              <span className="h-px w-10 bg-[#22D3EE]/80" />
+              <span className="h-px w-10 bg-[#004FEC]/80" />
               About Zentiq
             </p>
 
@@ -294,7 +294,7 @@ export default function AboutPage() {
               <Link
                 ref={(el) => (magneticRefs.current[0] = el)}
                 href="/contact"
-                className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#22D3EE] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.26)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
+                className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.26)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
               >
                 Start your move
               </Link>
@@ -314,8 +314,8 @@ export default function AboutPage() {
               data-hero-panel
               className="relative overflow-hidden rounded-[30px] border border-white/12 bg-white/[0.055] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.28)] backdrop-blur-[20px] md:p-7"
             >
-              <div className="pointer-events-none absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#22D3EE]/14 blur-[80px]" />
-              <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#22D3EE]/10 blur-[90px]" />
+              <div className="pointer-events-none absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#004FEC]/14 blur-[80px]" />
+              <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#004FEC]/10 blur-[90px]" />
 
               <div className="relative z-10">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50">
@@ -344,7 +344,7 @@ export default function AboutPage() {
                   ))}
                 </div>
 
-                <div className="mt-6 h-px w-full bg-gradient-to-r from-[#22D3EE]/45 via-white/12 to-transparent" />
+                <div className="mt-6 h-px w-full bg-gradient-to-r from-[#004FEC]/45 via-white/12 to-transparent" />
 
                 <p className="mt-5 text-[13px] leading-[1.8] text-white/55">
                   Operating across Canada — residential, commercial, and
@@ -414,10 +414,10 @@ export default function AboutPage() {
               >
                 <div
                   data-inner-glow
-                  className="pointer-events-none absolute left-0 top-0 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22D3EE]/18 opacity-0 blur-[55px]"
+                  className="pointer-events-none absolute left-0 top-0 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#004FEC]/18 opacity-0 blur-[55px]"
                 />
                 <div className="relative z-10">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[14px] border border-[#22D3EE]/22 bg-[#22D3EE]/10 text-[#86f2ff]">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[14px] border border-[#004FEC]/22 bg-[#004FEC]/10 text-[#86f2ff]">
                     <span className="text-[14px] font-semibold">0{index + 1}</span>
                   </div>
                   <h3 className={`${unbounded.className} text-[1.12rem] font-[500] tracking-[-0.04em] text-white`}>
@@ -453,7 +453,7 @@ export default function AboutPage() {
               <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-white/10" />
               <div
                 ref={progressRef}
-                className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-[#22D3EE] via-[#62efff] to-transparent will-change-transform"
+                className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-[#004FEC] via-[#62efff] to-transparent will-change-transform"
               />
             </div>
 
@@ -467,7 +467,7 @@ export default function AboutPage() {
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(34,211,238,0.07),transparent_28%,transparent_72%,rgba(34,211,238,0.04))]" />
                   <div className="relative z-10 flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
                     <div className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] border border-[#22D3EE]/22 bg-[#22D3EE]/10 text-[#8ef4ff]">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] border border-[#004FEC]/22 bg-[#004FEC]/10 text-[#8ef4ff]">
                         <span className="text-[13px] font-semibold">{step.number}</span>
                       </div>
                       <div className="max-w-[620px]">
@@ -479,7 +479,7 @@ export default function AboutPage() {
                         </p>
                       </div>
                     </div>
-                    <div className="hidden h-2.5 w-2.5 shrink-0 rounded-full bg-[#22D3EE] shadow-[0_0_18px_rgba(34,211,238,0.90)] md:block" />
+                    <div className="hidden h-2.5 w-2.5 shrink-0 rounded-full bg-[#004FEC] shadow-[0_0_18px_rgba(34,211,238,0.90)] md:block" />
                   </div>
                   {index !== steps.length - 1 && (
                     <div className="mt-6 h-px w-full bg-gradient-to-r from-white/8 via-white/5 to-transparent" />
@@ -521,7 +521,7 @@ export default function AboutPage() {
                 >
                   <div
                     data-inner-glow
-                    className="pointer-events-none absolute left-0 top-0 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22D3EE]/16 opacity-0 blur-[55px]"
+                    className="pointer-events-none absolute left-0 top-0 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#004FEC]/16 opacity-0 blur-[55px]"
                   />
                   <div className="relative z-10">
                     <h3 className={`${unbounded.className} text-[1.08rem] font-[500] tracking-[-0.04em] text-white`}>
@@ -549,8 +549,8 @@ export default function AboutPage() {
             data-card
             className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] px-6 py-10 shadow-[0_20px_60px_rgba(0,0,0,0.24)] backdrop-blur-[18px] md:px-10 md:py-12"
           >
-            <div className="absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#22D3EE]/12 blur-[80px]" />
-            <div className="absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#22D3EE]/10 blur-[90px]" />
+            <div className="absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#004FEC]/12 blur-[80px]" />
+            <div className="absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#004FEC]/10 blur-[90px]" />
             <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.10)_1px,transparent_1px)] [background-size:52px_52px]" />
 
             <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
@@ -571,7 +571,7 @@ export default function AboutPage() {
                 <Link
                   ref={(el) => (magneticRefs.current[2] = el)}
                   href="/contact"
-                  className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#22D3EE] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
+                  className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
                 >
                   Get a free quote
                 </Link>

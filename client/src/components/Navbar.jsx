@@ -141,7 +141,7 @@ export default function Navbar() {
           className="flex shrink-0 items-center gap-3 text-white"
           aria-label="Zentiq Home"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-[12px] bg-[#22D3EE] text-[#07111d] shadow-[0_8px_24px_rgba(34,211,238,0.22)] md:h-10 md:w-10">
+          <div className="flex h-9 w-9 items-center justify-center rounded-[12px] bg-[#004FEC] text-[#07111d] shadow-[0_8px_24px_rgba(34,211,238,0.22)] md:h-10 md:w-10">
             <svg
               viewBox="0 0 24 24"
               className="h-[17px] w-[17px]"
@@ -281,7 +281,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               ref={(el) => (linksRef.current[7] = el)}
-              className="inline-flex h-[40px] items-center justify-center rounded-[12px] bg-[#22D3EE] px-5 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.18),0_10px_24px_rgba(34,211,238,0.18)] transition-all duration-200 hover:translate-y-[-1px] hover:bg-[#38e4f7]"
+              className="inline-flex h-[40px] items-center justify-center rounded-[12px] bg-[#004FEC] px-5 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.18),0_10px_24px_rgba(34,211,238,0.18)] transition-all duration-200 hover:translate-y-[-1px] hover:bg-[#0047D4]"
             >
               Contact Us
             </Link>
@@ -435,7 +435,7 @@ export default function Navbar() {
 
           <Link
             href="/contact"
-            className="mt-2 inline-flex h-[44px] items-center justify-center rounded-[12px] bg-[#22D3EE] px-5 text-[13px] font-semibold text-[#07111d] transition-all duration-200 hover:bg-[#38e4f7]"
+            className="mt-2 inline-flex h-[44px] items-center justify-center rounded-[12px] bg-[#004FEC] px-5 text-[13px] font-semibold text-[#07111d] transition-all duration-200 hover:bg-[#0047D4]"
             onClick={() => setMobileOpen(false)}
           >
             Contact Us

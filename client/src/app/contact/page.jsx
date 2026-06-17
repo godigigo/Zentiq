@@ -162,7 +162,7 @@ export default function ContactPage() {
       <div
         ref={cursorRef}
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-0 h-[340px] w-[340px] rounded-full bg-[#22D3EE]/[0.08] blur-[95px] will-change-transform"
+        className="pointer-events-none fixed left-0 top-0 z-0 h-[340px] w-[340px] rounded-full bg-[#004FEC]/[0.08] blur-[95px] will-change-transform"
       />
 
       <div
@@ -199,9 +199,9 @@ export default function ContactPage() {
                       key={item.label}
                       data-card
                       ref={(el) => (cardsRef.current[i] = el)}
-                      className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.07),rgba(255,255,255,0.025))] p-6 transition duration-300 hover:border-[#22D3EE]/24 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))]"
+                      className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.07),rgba(255,255,255,0.025))] p-6 transition duration-300 hover:border-[#004FEC]/24 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))]"
                     >
-                      <div className="absolute right-0 top-0 h-24 w-24 rounded-full bg-[#22D3EE]/10 blur-[70px]" />
+                      <div className="absolute right-0 top-0 h-24 w-24 rounded-full bg-[#004FEC]/10 blur-[70px]" />
                       <div className="relative z-10">
                         <p className="text-[11px] uppercase tracking-[0.18em] text-[#8ef4ff]">
                           {item.label}
@@ -242,7 +242,7 @@ export default function ContactPage() {
                   className="relative overflow-hidden rounded-[30px] border border-white/12 bg-[linear-gradient(135deg,rgba(255,255,255,0.075),rgba(255,255,255,0.03))] p-6 md:p-8"
                 >
                   <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:24px_24px]" />
-                  <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-[#22D3EE]/10 blur-[80px]" />
+                  <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-[#004FEC]/10 blur-[80px]" />
 
                   <form className="relative z-10 grid gap-5">
                     <div className="grid gap-5 md:grid-cols-2">
@@ -253,7 +253,7 @@ export default function ContactPage() {
                         <input
                           type="text"
                           placeholder="Enter your name"
-                          className="h-[54px] rounded-[16px] border border-white/10 bg-white/[0.04] px-4 text-[14px] text-white placeholder:text-white/28 outline-none transition duration-200 focus:border-[#22D3EE]/42 focus:bg-white/[0.06]"
+                          className="h-[54px] rounded-[16px] border border-white/10 bg-white/[0.04] px-4 text-[14px] text-white placeholder:text-white/28 outline-none transition duration-200 focus:border-[#004FEC]/42 focus:bg-white/[0.06]"
                         />
                       </label>
 
@@ -264,7 +264,7 @@ export default function ContactPage() {
                         <input
                           type="email"
                           placeholder="Enter your email"
-                          className="h-[54px] rounded-[16px] border border-white/10 bg-white/[0.04] px-4 text-[14px] text-white placeholder:text-white/28 outline-none transition duration-200 focus:border-[#22D3EE]/42 focus:bg-white/[0.06]"
+                          className="h-[54px] rounded-[16px] border border-white/10 bg-white/[0.04] px-4 text-[14px] text-white placeholder:text-white/28 outline-none transition duration-200 focus:border-[#004FEC]/42 focus:bg-white/[0.06]"
                         />
                       </label>
                     </div>
@@ -276,7 +276,7 @@ export default function ContactPage() {
                       <input
                         type="tel"
                         placeholder="Enter phone number"
-                        className="h-[54px] rounded-[16px] border border-white/10 bg-white/[0.04] px-4 text-[14px] text-white placeholder:text-white/28 outline-none transition duration-200 focus:border-[#22D3EE]/42 focus:bg-white/[0.06]"
+                        className="h-[54px] rounded-[16px] border border-white/10 bg-white/[0.04] px-4 text-[14px] text-white placeholder:text-white/28 outline-none transition duration-200 focus:border-[#004FEC]/42 focus:bg-white/[0.06]"
                       />
                     </label>
 
@@ -287,7 +287,7 @@ export default function ContactPage() {
                       <textarea
                         rows={7}
                         placeholder="Write your message"
-                        className="min-h-[180px] rounded-[18px] border border-white/10 bg-white/[0.04] px-4 py-4 text-[14px] text-white placeholder:text-white/28 outline-none transition duration-200 focus:border-[#22D3EE]/42 focus:bg-white/[0.06]"
+                        className="min-h-[180px] rounded-[18px] border border-white/10 bg-white/[0.04] px-4 py-4 text-[14px] text-white placeholder:text-white/28 outline-none transition duration-200 focus:border-[#004FEC]/42 focus:bg-white/[0.06]"
                       />
                     </label>
 
@@ -295,7 +295,7 @@ export default function ContactPage() {
                       <button
                         ref={(el) => (magneticRefs.current[3] = el)}
                         type="submit"
-                        className="inline-flex h-[52px] items-center justify-center rounded-[16px] bg-[#22D3EE] px-7 text-[13px] font-semibold text-[#07111d] shadow-[0_14px_34px_rgba(34,211,238,0.26)] transition duration-200 hover:bg-[#43dff4]"
+                        className="inline-flex h-[52px] items-center justify-center rounded-[16px] bg-[#004FEC] px-7 text-[13px] font-semibold text-[#07111d] shadow-[0_14px_34px_rgba(34,211,238,0.26)] transition duration-200 hover:bg-[#43dff4]"
                       >
                         Send message
                       </button>

@@ -178,7 +178,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
       >
         <span
           className={`${unbounded.className} w-10 shrink-0 text-[13px] font-[500] tracking-[-0.03em] transition-colors duration-300 ${
-            isOpen ? "text-[#22D3EE]" : "text-white/30"
+            isOpen ? "text-[#004FEC]" : "text-white/30"
           }`}
         >
           {String(index + 1).padStart(2, "0")}
@@ -195,7 +195,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
 
           <span
             className={`text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-300 ${
-              isOpen ? "text-[#22D3EE]/80" : "text-white/34"
+              isOpen ? "text-[#004FEC]/80" : "text-white/34"
             }`}
           >
             {service.short}
@@ -205,7 +205,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
         <div
           className={`ml-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
             isOpen
-              ? "border-[#22D3EE]/40 bg-[#22D3EE]/12 text-[#22D3EE]"
+              ? "border-[#004FEC]/40 bg-[#004FEC]/12 text-[#004FEC]"
               : "border-white/12 bg-white/[0.04] text-white/40 group-hover:border-white/22 group-hover:text-white/70"
           }`}
           aria-hidden
@@ -252,7 +252,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
                   data-dot
                   className="flex items-center gap-3 text-[13px] text-white/64"
                 >
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#22D3EE] shadow-[0_0_10px_rgba(34,211,238,0.9)]" />
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#004FEC] shadow-[0_0_10px_rgba(34,211,238,0.9)]" />
                   {d}
                 </div>
               ))}
@@ -463,7 +463,7 @@ export default function LocalMoversPage() {
       <div
         ref={cursorRef}
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-0 h-[400px] w-[400px] rounded-full bg-[#22D3EE]/[0.06] blur-[100px] will-change-transform"
+        className="pointer-events-none fixed left-0 top-0 z-0 h-[400px] w-[400px] rounded-full bg-[#004FEC]/[0.06] blur-[100px] will-change-transform"
       />
 
       <header className="relative z-10 overflow-hidden border-b border-white/10 bg-[#07111d]/90 backdrop-blur-[12px]">
@@ -505,7 +505,7 @@ export default function LocalMoversPage() {
                 {benefits.map((b, i) => (
                   <div
                     key={b}
-                    className="absolute inset-0 flex items-center justify-center rounded-full border border-[#22D3EE]/24 bg-[#22D3EE]/8 px-5 text-[12px] font-semibold tracking-[0.12em] text-[#8ef4ff] transition-all duration-500"
+                    className="absolute inset-0 flex items-center justify-center rounded-full border border-[#004FEC]/24 bg-[#004FEC]/8 px-5 text-[12px] font-semibold tracking-[0.12em] text-[#8ef4ff] transition-all duration-500"
                     style={{
                       opacity: i === benefitIndex ? 1 : 0,
                       transform: i === benefitIndex ? "translateY(0)" : "translateY(8px)",
@@ -520,7 +520,7 @@ export default function LocalMoversPage() {
                 <Link
                   ref={(el) => (magneticRefs.current[0] = el)}
                   href="/contact"
-                  className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#22D3EE] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
+                  className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
                 >
                   Get a free quote
                 </Link>
@@ -556,7 +556,7 @@ export default function LocalMoversPage() {
                   movers service.
                 </p>
 
-                <div className="mt-8 h-px w-full bg-gradient-to-r from-[#22D3EE]/45 via-white/12 to-transparent" />
+                <div className="mt-8 h-px w-full bg-gradient-to-r from-[#004FEC]/45 via-white/12 to-transparent" />
 
                 <div className="mt-7 text-[12px] uppercase tracking-[0.16em] text-white/38">
                   Viewing: {currentService.title}
@@ -590,7 +590,7 @@ export default function LocalMoversPage() {
               className="flex shrink-0 items-center gap-6 px-8 text-[12px] font-semibold uppercase tracking-[0.18em] text-white/52"
             >
               {b}
-              <span className="h-1.5 w-1.5 rounded-full bg-[#22D3EE] shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#004FEC] shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
             </div>
           ))}
         </div>
@@ -623,8 +623,8 @@ export default function LocalMoversPage() {
             data-reveal
             className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.065),rgba(255,255,255,0.028))] px-6 py-10 md:px-12 md:py-14"
           >
-            <div className="absolute -left-16 -top-12 h-48 w-48 rounded-full bg-[#22D3EE]/10 blur-[90px]" />
-            <div className="absolute -bottom-12 right-0 h-48 w-48 rounded-full bg-[#22D3EE]/8 blur-[100px]" />
+            <div className="absolute -left-16 -top-12 h-48 w-48 rounded-full bg-[#004FEC]/10 blur-[90px]" />
+            <div className="absolute -bottom-12 right-0 h-48 w-48 rounded-full bg-[#004FEC]/8 blur-[100px]" />
             <div className="absolute inset-0 opacity-[0.055] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:48px_48px]" />
 
             <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
@@ -647,7 +647,7 @@ export default function LocalMoversPage() {
                 <Link
                   ref={(el) => (magneticRefs.current[2] = el)}
                   href="/contact"
-                  className="inline-flex h-[50px] items-center justify-center rounded-[14px] bg-[#22D3EE] px-7 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.26)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
+                  className="inline-flex h-[50px] items-center justify-center rounded-[14px] bg-[#004FEC] px-7 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.26)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
                 >
                   Get a free quote
                 </Link>

@@ -271,9 +271,9 @@ export default function PricingPage() {
               data-hero-tag
               className="mb-6 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/55"
             >
-              <span className="h-px w-10 bg-[#22D3EE]/80" />
+              <span className="h-px w-10 bg-[#004FEC]/80" />
               Pricing
-              <span className="h-px w-10 bg-[#22D3EE]/80" />
+              <span className="h-px w-10 bg-[#004FEC]/80" />
             </p>
 
             <h1
@@ -316,19 +316,19 @@ export default function PricingPage() {
                 data-card
                 className={`group relative overflow-hidden rounded-[26px] border p-6 backdrop-blur-[16px] md:p-7 ${
                   plan.featured
-                    ? "border-[#22D3EE]/30 bg-[linear-gradient(180deg,rgba(34,211,238,0.08),rgba(255,255,255,0.04))] shadow-[0_20px_60px_rgba(0,0,0,0.28)]"
+                    ? "border-[#004FEC]/30 bg-[linear-gradient(180deg,rgba(34,211,238,0.08),rgba(255,255,255,0.04))] shadow-[0_20px_60px_rgba(0,0,0,0.28)]"
                     : "border-white/10 bg-white/[0.045]"
                 }`}
               >
                 <div
                   data-inner-glow
-                  className="pointer-events-none absolute left-0 top-0 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22D3EE]/18 opacity-0 blur-[55px]"
+                  className="pointer-events-none absolute left-0 top-0 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#004FEC]/18 opacity-0 blur-[55px]"
                 />
 
                 {plan.featured && (
                   <>
-                    <div className="pointer-events-none absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#22D3EE]/12 blur-[80px]" />
-                    <div className="pointer-events-none absolute bottom-0 right-0 h-36 w-36 rounded-full bg-[#22D3EE]/10 blur-[90px]" />
+                    <div className="pointer-events-none absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#004FEC]/12 blur-[80px]" />
+                    <div className="pointer-events-none absolute bottom-0 right-0 h-36 w-36 rounded-full bg-[#004FEC]/10 blur-[90px]" />
                   </>
                 )}
 
@@ -346,7 +346,7 @@ export default function PricingPage() {
                     </div>
 
                     {plan.badge && (
-                      <span className="rounded-full border border-[#22D3EE]/25 bg-[#22D3EE]/12 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8ef4ff]">
+                      <span className="rounded-full border border-[#004FEC]/25 bg-[#004FEC]/12 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8ef4ff]">
                         {plan.badge}
                       </span>
                     )}
@@ -367,7 +367,7 @@ export default function PricingPage() {
                     {plan.description}
                   </p>
 
-                  <div className="mt-6 h-px w-full bg-gradient-to-r from-[#22D3EE]/25 via-white/10 to-transparent" />
+                  <div className="mt-6 h-px w-full bg-gradient-to-r from-[#004FEC]/25 via-white/10 to-transparent" />
 
                   <ul className="mt-6 space-y-3">
                     {plan.features.map((feature) => (
@@ -377,7 +377,7 @@ export default function PricingPage() {
                       >
                         <svg
                           viewBox="0 0 16 16"
-                          className="mt-1 h-[14px] w-[14px] shrink-0 text-[#22D3EE]"
+                          className="mt-1 h-[14px] w-[14px] shrink-0 text-[#004FEC]"
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="1.8"
@@ -396,7 +396,7 @@ export default function PricingPage() {
                     href={plan.href}
                     className={`mt-8 inline-flex h-[48px] items-center justify-center rounded-[14px] px-6 text-[13px] font-semibold transition-[background,transform,border-color] duration-200 ${
                       plan.featured
-                        ? "bg-[#22D3EE] text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] hover:bg-[#43dff4]"
+                        ? "bg-[#004FEC] text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] hover:bg-[#43dff4]"
                         : "border border-white/12 bg-white/5 text-white hover:border-white/22 hover:bg-white/10"
                     }`}
                   >
@@ -418,8 +418,8 @@ export default function PricingPage() {
             data-card
             className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] px-6 py-10 shadow-[0_20px_60px_rgba(0,0,0,0.24)] backdrop-blur-[18px] md:px-10 md:py-12"
           >
-            <div className="absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#22D3EE]/12 blur-[80px]" />
-            <div className="absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#22D3EE]/10 blur-[90px]" />
+            <div className="absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#004FEC]/12 blur-[80px]" />
+            <div className="absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#004FEC]/10 blur-[90px]" />
 
             <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-[680px]">
@@ -436,7 +436,7 @@ export default function PricingPage() {
               <Link
                 ref={(el) => (magneticRefs.current[3] = el)}
                 href="/contact"
-                className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#22D3EE] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
+                className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
               >
                 Get a free quote
               </Link>

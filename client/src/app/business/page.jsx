@@ -69,7 +69,7 @@ const journeySteps = [
     number: "01",
     title: "Instant Quote",
     text: "Destination, date, Enter origin.",
-    color: "#22D3EE",
+    color: "#004FEC",
   },
   {
     number: "02",
@@ -467,7 +467,7 @@ export default function BusinessPage() {
               data-hero-tag
               className="mb-6 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/55"
             >
-              <span className="h-px w-10 bg-[#22D3EE]/80" />
+              <span className="h-px w-10 bg-[#004FEC]/80" />
               Client Solutions
             </p>
 
@@ -508,13 +508,13 @@ export default function BusinessPage() {
             >
               <div
                 data-inner-glow
-                className="pointer-events-none absolute left-0 top-0 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22D3EE]/16 opacity-0 blur-[60px]"
+                className="pointer-events-none absolute left-0 top-0 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#004FEC]/16 opacity-0 blur-[60px]"
               />
-              <div className="pointer-events-none absolute -left-10 top-0 h-40 w-40 rounded-full bg-[#22D3EE]/10 blur-[80px]" />
+              <div className="pointer-events-none absolute -left-10 top-0 h-40 w-40 rounded-full bg-[#004FEC]/10 blur-[80px]" />
 
               <div className="relative z-10">
-                <div className="mb-7 inline-flex rounded-[12px] border border-[#22D3EE]/25 bg-[#22D3EE]/12 px-4 py-2">
-                  <span className={`${unbounded.className} text-[0.85rem] font-[500] tracking-[-0.02em] text-[#22D3EE]`}>
+                <div className="mb-7 inline-flex rounded-[12px] border border-[#004FEC]/25 bg-[#004FEC]/12 px-4 py-2">
+                  <span className={`${unbounded.className} text-[0.85rem] font-[500] tracking-[-0.02em] text-[#004FEC]`}>
                     B2C — Individual & Residential Clients
                   </span>
                 </div>
@@ -522,7 +522,7 @@ export default function BusinessPage() {
                 <div className="space-y-5">
                   {b2cFeatures.map((item) => (
                     <div key={item.title} className="flex items-start gap-3.5">
-                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#22D3EE] shadow-[0_0_10px_rgba(34,211,238,0.80)]" />
+                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#004FEC] shadow-[0_0_10px_rgba(34,211,238,0.80)]" />
                       <div>
                         <p className={`${unbounded.className} text-[0.92rem] font-[500] tracking-[-0.03em] text-white`}>
                           {item.title}
@@ -657,7 +657,7 @@ export default function BusinessPage() {
           >
             <div
               data-inner-glow
-              className="pointer-events-none absolute left-0 top-0 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22D3EE]/12 opacity-0 blur-[60px]"
+              className="pointer-events-none absolute left-0 top-0 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#004FEC]/12 opacity-0 blur-[60px]"
             />
 
             <div className="relative z-10 overflow-x-auto">
@@ -719,9 +719,9 @@ export default function BusinessPage() {
           >
             <div
               data-inner-glow
-              className="pointer-events-none absolute left-0 top-0 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22D3EE]/16 opacity-0 blur-[60px]"
+              className="pointer-events-none absolute left-0 top-0 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#004FEC]/16 opacity-0 blur-[60px]"
             />
-            <div className="absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#22D3EE]/12 blur-[80px]" />
+            <div className="absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#004FEC]/12 blur-[80px]" />
             <div className="absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#8b5cf6]/10 blur-[90px]" />
             <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.10)_1px,transparent_1px)] [background-size:52px_52px]" />
 
@@ -743,7 +743,7 @@ export default function BusinessPage() {
                 <Link
                   ref={(el) => (magneticRefs.current[0] = el)}
                   href="/contact"
-                  className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#22D3EE] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4] hover:-translate-y-[1px]"
+                  className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4] hover:-translate-y-[1px]"
                 >
                   Talk to Sales
                 </Link>

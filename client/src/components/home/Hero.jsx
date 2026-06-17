@@ -119,7 +119,7 @@ export default function Hero() {
       <div
         ref={bgRef}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
-        style={{ backgroundImage: "url('/hero-bg1.jpg')" }}
+        style={{ backgroundImage: "url('/hero-bg1.jpeg')" }}
       />
 
       {/* Gradient overlays */}
@@ -139,7 +139,7 @@ export default function Hero() {
         <div className="site-container flex flex-1 flex-col justify-center pt-[120px] pb-[96px]">
           <div className="max-w-[640px]">
             <p className="mb-5 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-white/55">
-              <span className="inline-block h-px w-6 bg-[#22D3EE]/60" />
+              <span className="inline-block h-px w-6 bg-[#004FEC]/60" />
               Canada&apos;s Trusted Movers
             </p>
 
@@ -154,7 +154,7 @@ export default function Hero() {
               <a
                 href="#contact"
                 data-cta
-                className="inline-flex h-[46px] items-center justify-center rounded-[10px] bg-[#22D3EE] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.3),0_8px_28px_rgba(34,211,238,0.32)] transition-colors duration-200 hover:bg-[#38e4f7]"
+                className="inline-flex h-[46px] items-center justify-center rounded-[10px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.3),0_8px_28px_rgba(34,211,238,0.32)] transition-colors duration-200 hover:bg-[#0047D4]"
               >
                 Get Quote
               </a>
@@ -197,7 +197,7 @@ export default function Hero() {
       <div className="relative z-10 flex min-h-screen flex-col justify-between px-5 pb-10 pt-28 sm:px-6 md:hidden">
         <div className="max-w-[340px]">
           <p className="mb-4 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.16em] text-white/50">
-            <span className="inline-block h-px w-5 bg-[#22D3EE]/55" />
+            <span className="inline-block h-px w-5 bg-[#004FEC]/55" />
             Canada&apos;s Trusted Movers
           </p>
 
@@ -211,7 +211,7 @@ export default function Hero() {
             <a
               href="#contact"
               data-cta
-              className="inline-flex h-[44px] items-center justify-center rounded-[9px] bg-[#22D3EE] px-5 text-[13px] font-semibold text-[#07111d] shadow-[0_6px_20px_rgba(34,211,238,0.28)]"
+              className="inline-flex h-[44px] items-center justify-center rounded-[9px] bg-[#004FEC] px-5 text-[13px] font-semibold text-[#07111d] shadow-[0_6px_20px_rgba(34,211,238,0.28)]"
             >
               Get Quote
             </a>

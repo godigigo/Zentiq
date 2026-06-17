@@ -27,11 +27,11 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#07111d] text-white">
       {/* top glow */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/60 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#004FEC]/60 to-transparent" />
 
       {/* soft background accents */}
-      <div className="pointer-events-none absolute left-[-120px] top-[-80px] h-[220px] w-[220px] rounded-full bg-[#22D3EE]/10 blur-[90px]" />
-      <div className="pointer-events-none absolute bottom-[-120px] right-[-80px] h-[240px] w-[240px] rounded-full bg-[#22D3EE]/8 blur-[110px]" />
+      <div className="pointer-events-none absolute left-[-120px] top-[-80px] h-[220px] w-[220px] rounded-full bg-[#004FEC]/10 blur-[90px]" />
+      <div className="pointer-events-none absolute bottom-[-120px] right-[-80px] h-[240px] w-[240px] rounded-full bg-[#004FEC]/8 blur-[110px]" />
 
       <div className="site-container relative z-10 py-14 md:py-16 lg:py-20">
         <div className="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-2 md:gap-12 lg:grid-cols-[1.15fr_0.85fr_0.95fr_1fr] lg:gap-14 lg:pb-12">
@@ -42,7 +42,7 @@ export default function Footer() {
               className="inline-flex items-center gap-3 text-white"
               aria-label="Zentiq Home"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-[#22D3EE] text-[#07111d] shadow-[0_10px_25px_rgba(34,211,238,0.20)]">
+              <div className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-[#004FEC] text-[#07111d] shadow-[0_10px_25px_rgba(34,211,238,0.20)]">
                 <svg
                   viewBox="0 0 24 24"
                   className="h-[18px] w-[18px]"

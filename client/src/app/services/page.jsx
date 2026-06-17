@@ -247,8 +247,8 @@ export default function ServicesPage() {
         className="pointer-events-none fixed inset-0 z-0 will-change-transform"
         aria-hidden
       >
-        <div className="absolute left-[12%] top-[8%] h-[520px] w-[520px] rounded-full bg-[#22D3EE]/[0.07] blur-[120px]" />
-        <div className="absolute right-[8%] top-[40%] h-[380px] w-[380px] rounded-full bg-[#22D3EE]/[0.05] blur-[100px]" />
+        <div className="absolute left-[12%] top-[8%] h-[520px] w-[520px] rounded-full bg-[#004FEC]/[0.07] blur-[120px]" />
+        <div className="absolute right-[8%] top-[40%] h-[380px] w-[380px] rounded-full bg-[#004FEC]/[0.05] blur-[100px]" />
       </div>
 
       {/* ══ PAGE HEADER ══ */}
@@ -261,7 +261,7 @@ export default function ServicesPage() {
                 data-header-tag
                 className="mb-4 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/52"
               >
-                <span className="h-px w-10 bg-[#22D3EE]/80" />
+                <span className="h-px w-10 bg-[#004FEC]/80" />
                 What we do
               </p>
 
@@ -310,13 +310,13 @@ export default function ServicesPage() {
                 {/* cursor glow */}
                 <div
                   data-inner-glow
-                  className="pointer-events-none absolute left-0 top-0 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22D3EE]/16 opacity-0 blur-[52px]"
+                  className="pointer-events-none absolute left-0 top-0 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#004FEC]/16 opacity-0 blur-[52px]"
                 />
 
                 <div className="relative z-10 flex h-full flex-col">
                   {/* top row */}
                   <div className="mb-7 flex items-start justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-[12px] border border-[#22D3EE]/20 bg-[#22D3EE]/8 text-[#8ef4ff]">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-[12px] border border-[#004FEC]/20 bg-[#004FEC]/8 text-[#8ef4ff]">
                       <span className="text-[12px] font-semibold">{service.number}</span>
                     </div>
 
@@ -339,7 +339,7 @@ export default function ServicesPage() {
 
                   {/* footer */}
                   <div className="mt-7 flex items-center justify-between">
-                    <span className="h-px flex-1 bg-gradient-to-r from-[#22D3EE]/28 via-white/8 to-transparent" />
+                    <span className="h-px flex-1 bg-gradient-to-r from-[#004FEC]/28 via-white/8 to-transparent" />
                     <span
                       data-arrow
                       className="ml-4 flex h-8 w-8 items-center justify-center rounded-full border border-white/12 bg-white/[0.06] text-[#8ef4ff] opacity-40"
@@ -365,8 +365,8 @@ export default function ServicesPage() {
             data-cta-card
             className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.055),rgba(255,255,255,0.025))] px-6 py-10 backdrop-blur-[18px] md:px-10 md:py-12"
           >
-            <div className="pointer-events-none absolute -left-16 -top-8 h-40 w-40 rounded-full bg-[#22D3EE]/12 blur-[80px]" />
-            <div className="pointer-events-none absolute bottom-0 right-0 h-44 w-44 rounded-full bg-[#22D3EE]/08 blur-[90px]" />
+            <div className="pointer-events-none absolute -left-16 -top-8 h-40 w-40 rounded-full bg-[#004FEC]/12 blur-[80px]" />
+            <div className="pointer-events-none absolute bottom-0 right-0 h-44 w-44 rounded-full bg-[#004FEC]/08 blur-[90px]" />
             <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.10)_1px,transparent_1px)] [background-size:52px_52px]" />
 
             <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
@@ -388,7 +388,7 @@ export default function ServicesPage() {
                 <Link
                   ref={(el) => (magneticRefs.current[0] = el)}
                   href="/contact"
-                  className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#22D3EE] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
+                  className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
                 >
                   Get a free quote
                 </Link>

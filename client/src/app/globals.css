@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #0b1220;
-  --color-primary: #22d3ee;
+  --color-primary: #004FEC;
   --color-dark: #0b1220;
   --site-padding-x: clamp(24px, 8vw, 120px);
 }
