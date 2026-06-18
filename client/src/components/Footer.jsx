@@ -18,7 +18,7 @@ const serviceLinks = [
 ];
 
 const contactLinks = [
-  { label: "hello@zentiq.com", href: "mailto:hello@zentiq.com" },
+  { label: "info@zentiq.ca", href: "mailto:hello@zentiq.com" },
   { label: "+1 (234) 659-9870", href: "tel:+12346599870" },
   { label: "Toronto, Ontario, Canada", href: "/contact" },
 ];

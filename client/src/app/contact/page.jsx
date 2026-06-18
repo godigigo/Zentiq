@@ -16,7 +16,7 @@ const contactItems = [
   },
   {
     label: "Email",
-    value: "hello@zentiq.com",
+    value: "info@zentiq.ca",
     href: "mailto:hello@zentiq.com",
   },
   {

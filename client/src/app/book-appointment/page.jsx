@@ -51,8 +51,8 @@ const locationSuggestions = [
 const contactInfo = [
   {
     label: "Email",
-    value: "hello@zentiq.com",
-    href: "mailto:hello@zentiq.com",
+    value: "info@zentiq.ca",
+    href: "mailto:info@zentiq.ca",
   },
   {
     label: "Phone",
