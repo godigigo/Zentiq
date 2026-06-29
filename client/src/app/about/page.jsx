@@ -293,7 +293,7 @@ export default function AboutPage() {
             <div data-hero-actions className="mt-9 flex flex-wrap items-center gap-4">
               <Link
                 ref={(el) => (magneticRefs.current[0] = el)}
-                href="/contact"
+                href="/book-appointment"
                 className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.26)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
               >
                 Start your move
@@ -570,7 +570,7 @@ export default function AboutPage() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   ref={(el) => (magneticRefs.current[2] = el)}
-                  href="/contact"
+                  href="/book-appointment"
                   className="inline-flex h-[48px] items-center justify-center rounded-[14px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_12px_34px_rgba(34,211,238,0.24)] transition-[background,transform] duration-200 hover:bg-[#43dff4]"
                 >
                   Get a free quote

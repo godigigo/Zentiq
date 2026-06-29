@@ -473,7 +473,7 @@ export default function Services() {
 
         <div ref={buttonRef} className="mt-10 flex justify-center">
           <a
-            href="#contact"
+            href="/services"
             data-btn
             className="group inline-flex h-[42px] items-center gap-2.5 rounded-[10px] border border-[#07111d]/10 bg-white/34 px-5 text-[13px] font-semibold text-[#07111d] shadow-[0_8px_16px_rgba(7,17,29,0.04)] backdrop-blur-[4px] transition-all duration-200 hover:bg-white/44"
           >

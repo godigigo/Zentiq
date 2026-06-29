@@ -190,7 +190,7 @@ export default function About() {
 
               <div ref={btnWrapRef} className="mt-8">
                 <a
-                  href="#contact"
+                  href="/about"
                   data-btn
                   className="inline-flex h-[44px] items-center justify-center rounded-[10px] bg-[#004FEC] px-7 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.22),0_8px_24px_rgba(34,211,238,0.24)] transition-all duration-200 hover:bg-[#0047D4]"
                 >
@@ -230,7 +230,7 @@ export default function About() {
 
             <div className="mt-7">
               <a
-                href="#contact"
+                href="/about"
                 className="inline-flex h-[44px] items-center justify-center rounded-[10px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_6px_20px_rgba(34,211,238,0.24)]"
               >
                 Learn More
