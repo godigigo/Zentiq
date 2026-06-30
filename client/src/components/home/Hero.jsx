@@ -1,385 +1,173 @@
 "use client";
 
-import { useEffect, useRef, useState, lazy, Suspense } from "react";
-import Link from "next/link";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { unbounded } from "@/lib/fonts";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
-const TruckScene = lazy(() => import("./TruckScene"));
-
-const STATS = [
-  { value: "12K+", label: "Moves completed" },
-  { value: "98%", label: "On-time delivery" },
-  { value: "4.9★", label: "Client rating" },
-];
-
-const BADGES = [
-  { icon: "🛡️", label: "Fully insured" },
-  { icon: "📍", label: "Pan-Canada" },
-  { icon: "🚛", label: "10k+ moves" },
-  { icon: "⭐", label: "4.9 / 5" },
-];
+gsap.registerPlugin(SplitText);
 
 export default function Hero() {
-  const wrapperRef = useRef(null);
+  const heroRef = useRef(null);
+  const bgRef = useRef(null);
   const headingRef = useRef(null);
-  const subRef = useRef(null);
   const btnsRef = useRef(null);
-  const badgesRef = useRef(null);
-  const statsRef = useRef(null);
-  const scrollHint = useRef(null);
-  const progressRef = useRef(null);
-
-  const [canvasReady, setCanvasReady] = useState(false);
-  useEffect(() => setCanvasReady(true), []);
+  const copyRef = useRef(null);
+  const overlayRef = useRef(null);
 
   useEffect(() => {
-    const wrapper = wrapperRef.current;
-    if (!wrapper) return;
+    const hero = heroRef.current;
+    if (!hero) return;
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const cleanupFns = [];
-
-    const onScroll = () => {
-      const rect = wrapper.getBoundingClientRect();
-      const total = wrapper.offsetHeight - window.innerHeight;
-      const prog = total > 0 ? Math.max(0, Math.min(1, -rect.top / total)) : 0;
-      if (progressRef.current) progressRef.current.style.transform = `scaleX(${prog})`;
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    cleanupFns.push(() => window.removeEventListener("scroll", onScroll));
-
-    if (reduceMotion) {
-      [headingRef, subRef, btnsRef, badgesRef, statsRef]
-        .map((r) => r.current)
-        .filter(Boolean)
-        .forEach((el) => gsap.set(el, { opacity: 1, y: 0 }));
-      onScroll();
-      return () => cleanupFns.forEach((fn) => fn());
-    }
+    const buttons = hero.querySelectorAll("[data-cta]");
+    let splitInstance;
 
     const ctx = gsap.context(() => {
-      let split = null;
-
-      if (headingRef.current) {
-        split = new SplitText(headingRef.current, {
-          type: "lines",
-          linesClass: "h-line",
-        });
-
-        split.lines.forEach((line) => {
-          const mask = document.createElement("div");
-          mask.className = "h-mask";
-          line.parentNode.insertBefore(mask, line);
-          mask.appendChild(line);
-        });
-
-        gsap.set(split.lines, { yPercent: 110, opacity: 0 });
-      }
-
-      gsap.set(
-        [subRef.current, btnsRef.current, badgesRef.current, statsRef.current].filter(Boolean),
-        { y: 22, opacity: 0 }
-      );
-
-      const entrance = gsap.timeline({ delay: 0.25, defaults: { ease: "power4.out" } });
-
-      if (split?.lines?.length) {
-        entrance.to(split.lines, { yPercent: 0, opacity: 1, stagger: 0.1, duration: 1.0 }, 0);
-      }
-
-      entrance
-        .to(subRef.current, { y: 0, opacity: 1, duration: 0.8 }, 0.45)
-        .to(btnsRef.current, { y: 0, opacity: 1, duration: 0.72 }, 0.58)
-        .to(badgesRef.current, { y: 0, opacity: 1, duration: 0.72 }, 0.7)
-        .to(statsRef.current, { y: 0, opacity: 1, duration: 0.72 }, 0.82);
-
-      const textEls = [
-        headingRef.current,
-        subRef.current,
-        btnsRef.current,
-        badgesRef.current,
-        statsRef.current,
-      ].filter(Boolean);
-
-      const textTween = gsap.to(textEls, {
-        yPercent: -35,
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: wrapper,
-          start: "top top",
-          end: "+=120%",
-          scrub: true,
-        },
+      splitInstance = new SplitText(headingRef.current, {
+        type: "lines",
+        linesClass: "hero-line",
       });
 
-      let hintTween = null;
-      if (scrollHint.current) {
-        hintTween = gsap.to(scrollHint.current, {
-          opacity: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: wrapper,
-            start: "top top",
-            end: "+=28%",
-            scrub: true,
+      splitInstance.lines.forEach((line) => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "hero-line-mask";
+        line.parentNode.insertBefore(wrapper, line);
+        wrapper.appendChild(line);
+      });
+
+      gsap.set(splitInstance.lines, { yPercent: 110, opacity: 0 });
+      gsap.set(bgRef.current, { scale: 1.05 });
+      gsap.set(overlayRef.current, { opacity: 0 });
+      gsap.set(btnsRef.current, { y: 22, opacity: 0 });
+      gsap.set(copyRef.current, { y: 18, opacity: 0 });
+
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.to(bgRef.current, { scale: 1, duration: 1.9, ease: "expo.out" })
+        .to(overlayRef.current, { opacity: 1, duration: 1.05 }, 0)
+        .to(
+          splitInstance.lines,
+          {
+            yPercent: 0,
+            opacity: 1,
+            stagger: 0.1,
+            duration: 0.95,
+            ease: "power4.out",
           },
-        });
-      }
+          0.18
+        )
+        .to(btnsRef.current, { y: 0, opacity: 1, duration: 0.65 }, 0.62)
+        .to(copyRef.current, { y: 0, opacity: 1, duration: 0.65 }, 0.8);
 
-      const ctas = wrapper.querySelectorAll("[data-cta]");
-      ctas.forEach((el) => {
-        const onMove = (e) => {
-          const r = el.getBoundingClientRect();
-          gsap.to(el, {
-            x: (e.clientX - r.left - r.width / 2) * 0.22,
-            y: (e.clientY - r.top - r.height / 2) * 0.28,
-            scale: 1.03,
-            duration: 0.24,
-            ease: "power2.out",
-          });
-        };
-
-        const onLeave = () =>
-          gsap.to(el, { x: 0, y: 0, scale: 1, duration: 0.38, ease: "power3.out" });
-
-        el.addEventListener("mousemove", onMove);
-        el.addEventListener("mouseleave", onLeave);
-
-        cleanupFns.push(() => {
-          el.removeEventListener("mousemove", onMove);
-          el.removeEventListener("mouseleave", onLeave);
-        });
+      gsap.to(bgRef.current, {
+        y: -16,
+        duration: 7.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
       });
+    }, heroRef);
 
-      ScrollTrigger.refresh();
+    const enterHandlers = [];
+    const leaveHandlers = [];
 
-      cleanupFns.push(() => {
-        textTween.scrollTrigger?.kill();
-        textTween.kill();
-        hintTween?.scrollTrigger?.kill();
-        hintTween?.kill();
-      });
-    }, wrapper);
+    buttons.forEach((btn, i) => {
+      enterHandlers[i] = () =>
+        gsap.to(btn, {
+          y: -2,
+          scale: 1.02,
+          duration: 0.22,
+          ease: "power2.out",
+        });
 
-    const id = window.setTimeout(() => {
-      ScrollTrigger.refresh();
-      onScroll();
-    }, 60);
+      leaveHandlers[i] = () =>
+        gsap.to(btn, {
+          y: 0,
+          scale: 1,
+          duration: 0.22,
+          ease: "power2.out",
+        });
 
-    cleanupFns.push(() => window.clearTimeout(id));
+      btn.addEventListener("mouseenter", enterHandlers[i]);
+      btn.addEventListener("mouseleave", leaveHandlers[i]);
+    });
 
     return () => {
-      cleanupFns.forEach((fn) => fn());
+      buttons.forEach((btn, i) => {
+        btn.removeEventListener("mouseenter", enterHandlers[i]);
+        btn.removeEventListener("mouseleave", leaveHandlers[i]);
+      });
+
+      if (splitInstance) splitInstance.revert();
       ctx.revert();
-      split?.revert?.();
     };
   }, []);
 
   return (
-    <>
-      <style>{`
-        .h-mask { overflow: hidden; padding-block: 0.05em; }
-        .h-line { will-change: transform, opacity; }
-        @keyframes hint-bob {
-          0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.72; }
-          50% { transform: translateX(-50%) translateY(8px); opacity: 0.26; }
+    <section
+      ref={heroRef}
+      className="relative min-h-screen w-full overflow-hidden bg-black text-white"
+    >
+      <style jsx>{`
+        .hero-line-mask {
+          overflow: hidden;
+          padding-block: 0.08em;
         }
       `}</style>
 
+      {/* Background */}
       <div
-        ref={progressRef}
+        ref={bgRef}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
+        style={{ backgroundImage: "url('/hero-bg1.jpeg')" }}
+      />
+
+      {/* Gradient overlays */}
+      <div
+        ref={overlayRef}
+        className="absolute inset-0"
         style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 2,
-          background: "#004FEC",
-          transformOrigin: "left",
-          transform: "scaleX(0)",
-          zIndex: 100,
-          boxShadow: "0 0 8px #004FEC",
+          background: `
+            linear-gradient(105deg, rgba(5,12,22,0.76) 0%, rgba(5,12,22,0.46) 35%, rgba(5,12,22,0.12) 62%, rgba(5,12,22,0.10) 100%),
+            linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.00) 40%, rgba(0,0,0,0.18) 78%, rgba(0,0,0,0.42) 100%)
+          `,
         }}
       />
 
-      <div ref={wrapperRef} style={{ height: "300vh", position: "relative" }}>
-        <div
-          style={{
-            position: "sticky",
-            top: 0,
-            height: "100vh",
-            width: "100%",
-            overflow: "hidden",
-            background:
-              "radial-gradient(ellipse 130% 85% at 55% 40%, #091428 0%, #020508 100%)",
-          }}
-        >
-          {canvasReady && (
-            <Suspense fallback={null}>
-              <div style={{ position: "absolute", inset: 0 }}>
-                <TruckScene scrollerRef={wrapperRef} />
-              </div>
-            </Suspense>
-          )}
-
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              pointerEvents: "none",
-              background: "linear-gradient(to top, rgba(2,5,8,0.88) 0%, transparent 32%)",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              pointerEvents: "none",
-              background: "linear-gradient(to bottom, rgba(2,5,8,0.58) 0%, transparent 20%)",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              pointerEvents: "none",
-              background:
-                "linear-gradient(95deg, rgba(3,10,24,0.84) 0%, rgba(3,10,24,0.46) 36%, transparent 62%)",
-            }}
-          />
-
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              zIndex: 10,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              padding: "0 clamp(22px, 6vw, 96px)",
-              pointerEvents: "none",
-            }}
-          >
-            <p
-              style={{
-                marginBottom: "1.2rem",
-                display: "flex",
-                alignItems: "center",
-                gap: 10,
-                fontSize: 11,
-                fontWeight: 600,
-                textTransform: "uppercase",
-                letterSpacing: "0.22em",
-                color: "#004FEC",
-              }}
-            >
-              <span
-                style={{
-                  display: "inline-block",
-                  width: 28,
-                  height: 1,
-                  background: "#004FEC",
-                  boxShadow: "0 0 6px #004FEC",
-                }}
-              />
+      {/* DESKTOP */}
+      <div className="relative z-10 hidden min-h-screen md:flex md:flex-col md:justify-between">
+        <div className="site-container flex flex-1 flex-col justify-center pt-[120px] pb-[96px]">
+          <div className="max-w-[640px]">
+            <p className="mb-5 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-white/55">
+              <span className="inline-block h-px w-6 bg-[#004FEC]/60" />
               Canada&apos;s Trusted Movers
             </p>
 
             <h1
               ref={headingRef}
-              className={unbounded.className}
-              style={{
-                fontSize: "clamp(2.6rem, 5vw, 5.4rem)",
-                fontWeight: 400,
-                lineHeight: 1.0,
-                letterSpacing: "-0.045em",
-                color: "#ffffff",
-                maxWidth: 660,
-                margin: 0,
-                textShadow: "0 2px 40px rgba(0,0,0,0.55)",
-              }}
+              className={`${unbounded.className} text-[clamp(3rem,4.4vw,5rem)] font-[400] leading-[1.02] tracking-[-0.045em] text-white`}
             >
-              Moving made simple across Canada
+              Moving made simple and reliable across Canada
             </h1>
 
-            <p
-              ref={subRef}
-              style={{
-                marginTop: "1.45rem",
-                fontSize: "clamp(14px, 1.3vw, 16px)",
-                lineHeight: 1.82,
-                color: "rgba(255,255,255,0.56)",
-                maxWidth: 430,
-                opacity: 0,
-              }}
-            >
-              From a single room to a full cross-country haul — real-time
-              tracking, insured cargo, and a dedicated crew from door to door.
-            </p>
-
-            <div
-              ref={btnsRef}
-              style={{
-                marginTop: "2.25rem",
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 16,
-                alignItems: "center",
-                pointerEvents: "all",
-                opacity: 0,
-              }}
-            >
-              <Link
-                href="/book-appointment"
+            <div ref={btnsRef} className="mt-10 flex items-center gap-5">
+              <a
+                href="#contact"
                 data-cta
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  height: 50,
-                  padding: "0 30px",
-                  borderRadius: 11,
-                  background: "#004FEC",
-                  fontSize: 13,
-                  fontWeight: 700,
-                  color: "#fff",
-                  textDecoration: "none",
-                  letterSpacing: "0.02em",
-                  boxShadow: "0 0 0 1px rgba(0,79,236,0.55), 0 8px 32px rgba(0,79,236,0.42)",
-                  transition: "background 0.2s",
-                }}
+                className="inline-flex h-[46px] items-center justify-center rounded-[10px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.3),0_8px_28px_rgba(34,211,238,0.32)] transition-colors duration-200 hover:bg-[#0047D4]"
               >
-                Get Free Quote
-              </Link>
+                Get Quote
+              </a>
 
-              <Link
-                href="/about"
+              <a
+                href="#services"
                 data-cta
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 7,
-                  height: 50,
-                  padding: "0 6px",
-                  fontSize: 14,
-                  fontWeight: 500,
-                  color: "rgba(255,255,255,0.67)",
-                  textDecoration: "none",
-                  transition: "color 0.2s",
-                }}
+                className="group inline-flex h-[46px] items-center justify-center gap-[6px] text-[14px] font-medium text-white/75 transition-colors duration-200 hover:text-white"
               >
-                How it works
+                Learn more
                 <svg
                   viewBox="0 0 16 16"
-                  width="14"
-                  height="14"
+                  className="h-[13px] w-[13px] transition-transform duration-200 group-hover:translate-x-[3px]"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.8"
@@ -388,116 +176,73 @@ export default function Hero() {
                 >
                   <path d="M3 8h10M9 4l4 4-4 4" />
                 </svg>
-              </Link>
+              </a>
             </div>
-
-            <div
-              ref={badgesRef}
-              style={{
-                marginTop: "2rem",
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 10,
-                opacity: 0,
-              }}
-            >
-              {BADGES.map((b) => (
-                <span
-                  key={b.label}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 6,
-                    padding: "6px 13px",
-                    borderRadius: 999,
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    fontSize: 11,
-                    color: "rgba(255,255,255,0.56)",
-                    backdropFilter: "blur(10px)",
-                  }}
-                >
-                  {b.icon} {b.label}
-                </span>
-              ))}
-            </div>
-
-            <div
-              ref={statsRef}
-              style={{
-                marginTop: "3rem",
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "0 40px",
-                opacity: 0,
-              }}
-            >
-              {STATS.map((s) => (
-                <div key={s.label} style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                  <span
-                    className={unbounded.className}
-                    style={{
-                      fontSize: "clamp(1.7rem,2.4vw,2.1rem)",
-                      fontWeight: 400,
-                      lineHeight: 1,
-                      color: "#fff",
-                    }}
-                  >
-                    {s.value}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: 11,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.15em",
-                      color: "rgba(255,255,255,0.38)",
-                    }}
-                  >
-                    {s.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div
-            ref={scrollHint}
-            style={{
-              position: "absolute",
-              bottom: 32,
-              left: "50%",
-              zIndex: 10,
-              pointerEvents: "none",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 6,
-              animation: "hint-bob 2.4s ease-in-out infinite",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 9,
-                textTransform: "uppercase",
-                letterSpacing: "0.22em",
-                color: "rgba(255,255,255,0.38)",
-              }}
-            >
-              Scroll
-            </span>
-            <svg
-              viewBox="0 0 16 16"
-              width="11"
-              height="11"
-              fill="none"
-              stroke="rgba(255,255,255,0.38)"
-              strokeWidth="1.6"
-            >
-              <path d="M3 6l5 5 5-5" />
-            </svg>
           </div>
         </div>
+
+        <div className="site-container flex justify-end pb-[58px]">
+          <p
+            ref={copyRef}
+            className="w-[340px] text-[16px] leading-[1.8] text-white/68 md:text-[17px]"
+          >
+            We handle every detail of your move with care and precision. From
+            local relocations to cross-country journeys, trust us to deliver
+            your belongings safely and on time.
+          </p>
+        </div>
       </div>
-    </>
+
+      {/* MOBILE */}
+      <div className="relative z-10 flex min-h-screen flex-col justify-between px-5 pb-10 pt-28 sm:px-6 md:hidden">
+        <div className="max-w-[340px]">
+          <p className="mb-4 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.16em] text-white/50">
+            <span className="inline-block h-px w-5 bg-[#004FEC]/55" />
+            Canada&apos;s Trusted Movers
+          </p>
+
+          <h1
+            className={`${unbounded.className} text-[clamp(2.65rem,10vw,4rem)] font-[400] leading-[1.02] tracking-[-0.045em] text-white`}
+          >
+            Moving made simple and reliable across Canada
+          </h1>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href="#contact"
+              data-cta
+              className="inline-flex h-[44px] items-center justify-center rounded-[9px] bg-[#004FEC] px-5 text-[13px] font-semibold text-[#07111d] shadow-[0_6px_20px_rgba(34,211,238,0.28)]"
+            >
+              Get Quote
+            </a>
+
+            <a
+              href="#services"
+              data-cta
+              className="inline-flex h-[44px] items-center justify-center gap-[5px] text-[14px] font-medium text-white/75"
+            >
+              Learn more
+              <svg
+                viewBox="0 0 16 16"
+                className="h-[12px] w-[12px]"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <p className="max-w-[300px] text-[14px] leading-[1.78] text-white/68 sm:text-[15px]">
+          We handle every detail of your move with care and precision. From
+          local relocations to cross-country journeys, trust us to deliver your
+          belongings safely and on time.
+        </p>
+      </div>
+    </section>
   );
 }
