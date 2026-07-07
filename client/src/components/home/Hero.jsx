@@ -160,7 +160,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="#services"
+                href="/about"
                 data-cta
                 className="group inline-flex h-[46px] items-center justify-center gap-[6px] text-[14px] font-medium text-white/75 transition-colors duration-200 hover:text-white"
               >
@@ -217,7 +217,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="#services"
+              href="/about"
               data-cta
               className="inline-flex h-[44px] items-center justify-center gap-[5px] text-[14px] font-medium text-white/75"
             >

@@ -375,7 +375,7 @@ export default function Services() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#cdeff5] text-[#07111d]"
+      className="relative overflow-hidden bg-[#ffff] text-[#07111d]"
     >
       {/* Background grid */}
       <div className="absolute inset-0 opacity-[0.24]">

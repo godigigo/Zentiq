@@ -89,7 +89,7 @@ export default function Process() {
   return (
     <section
       ref={sectionRef}
-      className="w-full overflow-hidden bg-[#afeff8] text-black"
+      className="w-full overflow-hidden bg-[#ffff] text-black"
     >
       <div className="site-container py-16 md:py-20 xl:py-[80px]">
 

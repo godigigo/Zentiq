@@ -212,7 +212,7 @@ export default function ContactSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#d9eef2] text-[#07111d]"
+      className="relative overflow-hidden bg-[#ffff] text-[#07111d]"
     >
       <div className="site-container relative z-10 py-[40px] md:py-[46px] lg:py-[52px]">
         <div className="grid min-h-[50vh] grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_520px] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_560px]">
