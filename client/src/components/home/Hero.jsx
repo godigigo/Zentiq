@@ -152,7 +152,7 @@ export default function Hero() {
 
             <div ref={btnsRef} className="mt-10 flex items-center gap-5">
               <a
-                href="#contact"
+                href="/book-appointment"
                 data-cta
                 className="inline-flex h-[46px] items-center justify-center rounded-[10px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.3),0_8px_28px_rgba(34,211,238,0.32)] transition-colors duration-200 hover:bg-[#0047D4]"
               >
@@ -209,7 +209,7 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
-              href="#contact"
+              href="book-appointment"
               data-cta
               className="inline-flex h-[44px] items-center justify-center rounded-[9px] bg-[#004FEC] px-5 text-[13px] font-semibold text-[#07111d] shadow-[0_6px_20px_rgba(34,211,238,0.28)]"
             >

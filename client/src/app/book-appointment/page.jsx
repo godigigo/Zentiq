@@ -8,16 +8,6 @@ import { unbounded } from "@/lib/fonts";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const apartmentOptions = [
-  "Studio",
-  "1 Bedroom",
-  "2 Bedrooms",
-  "3 Bedrooms",
-  "4 Bedrooms",
-  "House",
-  "Office / Commercial",
-];
-
 const locationSuggestions = [
   "Toronto, ON",
   "Markham, ON",
@@ -90,13 +80,12 @@ export default function GetQuotePage() {
   const cardsRef = useRef([]);
 
   const [formData, setFormData] = useState({
-    movingFrom: "",
-    movingTo: "",
-    date: "",
     fullName: "",
     email: "",
     phone: "",
-    apartmentSize: "",
+    date: "",
+    movingFrom: "",
+    movingTo: "",
   });
 
   const [fromSuggestions, setFromSuggestions] = useState([]);
@@ -160,15 +149,14 @@ export default function GetQuotePage() {
       setSubmitted(false);
 
       const checks = [
-        [!formData.movingFrom.trim(), "Moving From is required."],
-        [!formData.movingTo.trim(), "Moving To is required."],
-        [!formData.date, "Moving Date is required."],
-        [new Date(formData.date) < new Date(minDate), "Please select a date from tomorrow onward."],
         [!formData.fullName.trim(), "Full Name is required."],
         [!formData.email.trim(), "Email is required."],
         [!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email), "Enter a valid email address."],
         [!formData.phone.trim(), "Phone Number is required."],
-        [!formData.apartmentSize, "Please select Apartment / Home Size."],
+        [!formData.date, "Moving Date is required."],
+        [new Date(formData.date) < new Date(minDate), "Please select a date from tomorrow onward."],
+        [!formData.movingFrom.trim(), "Moving From is required."],
+        [!formData.movingTo.trim(), "Moving To is required."],
       ];
 
       for (const [cond, msg] of checks) {
@@ -391,15 +379,6 @@ export default function GetQuotePage() {
               >
                 Browse services
               </Link>
-
-              {/* <Link
-                data-top-action
-                ref={(el) => (magneticRefs.current[1] = el)}
-                href="/contact"
-                className="inline-flex h-[42px] items-center justify-center rounded-[12px] border border-white/12 bg-white/[0.04] px-5 text-[13px] font-medium text-white/82 transition duration-200 hover:border-white/22 hover:bg-white/[0.08]"
-              >
-                Contact page
-              </Link> */}
             </div>
           </div>
 
@@ -456,185 +435,138 @@ export default function GetQuotePage() {
                     </div>
                   ) : null}
 
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <label className="flex flex-col gap-2">
-                      <FieldLabel>Moving From</FieldLabel>
-                      <div className="relative">
-                        <CyberInput>
-                          <input
-                            type="text"
-                            name="movingFrom"
-                            value={formData.movingFrom}
-                            onChange={handleChange}
-                            onFocus={() => setFromOpen(fromSuggestions.length > 0)}
-                            onBlur={() => setTimeout(() => setFromOpen(false), 160)}
-                            autoComplete="off"
-                            placeholder="City or address"
-                            className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white placeholder:text-white/30 outline-none"
-                          />
-                        </CyberInput>
-
-                        {fromOpen && fromSuggestions.length > 0 ? (
-                          <div className="absolute left-0 right-0 top-[calc(100%+6px)] z-30 overflow-hidden rounded-[14px] border border-white/10 bg-[#0b1522] shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
-                            {fromSuggestions.map((s, idx) => (
-                              <button
-                                key={s}
-                                type="button"
-                                onMouseDown={() => pickFrom(s)}
-                                className={`block w-full px-4 py-3 text-left text-[13px] text-white/78 transition hover:bg-white/[0.05] hover:text-[#8ef4ff] ${
-                                  idx !== fromSuggestions.length - 1 ? "border-b border-white/8" : ""
-                                }`}
-                              >
-                                {s}
-                              </button>
-                            ))}
-                          </div>
-                        ) : null}
-                      </div>
-                    </label>
-
-                    <label className="flex flex-col gap-2">
-                      <FieldLabel>Moving To</FieldLabel>
-                      <div className="relative">
-                        <CyberInput>
-                          <input
-                            type="text"
-                            name="movingTo"
-                            value={formData.movingTo}
-                            onChange={handleChange}
-                            onFocus={() => setToOpen(toSuggestions.length > 0)}
-                            onBlur={() => setTimeout(() => setToOpen(false), 160)}
-                            autoComplete="off"
-                            placeholder="City or address"
-                            className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white placeholder:text-white/30 outline-none"
-                          />
-                        </CyberInput>
-
-                        {toOpen && toSuggestions.length > 0 ? (
-                          <div className="absolute left-0 right-0 top-[calc(100%+6px)] z-30 overflow-hidden rounded-[14px] border border-white/10 bg-[#0b1522] shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
-                            {toSuggestions.map((s, idx) => (
-                              <button
-                                key={s}
-                                type="button"
-                                onMouseDown={() => pickTo(s)}
-                                className={`block w-full px-4 py-3 text-left text-[13px] text-white/78 transition hover:bg-white/[0.05] hover:text-[#8ef4ff] ${
-                                  idx !== toSuggestions.length - 1 ? "border-b border-white/8" : ""
-                                }`}
-                              >
-                                {s}
-                              </button>
-                            ))}
-                          </div>
-                        ) : null}
-                      </div>
-                    </label>
-                  </div>
-
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <label className="flex flex-col gap-2">
-                      <FieldLabel>Moving Date</FieldLabel>
-                      <CyberInput>
-                        <input
-                          type="date"
-                          name="date"
-                          min={minDate}
-                          value={formData.date}
-                          onChange={handleChange}
-                          className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white outline-none [color-scheme:dark]"
-                        />
-                      </CyberInput>
-                    </label>
-
-                    <label className="flex flex-col gap-2">
-                      <FieldLabel>Apartment / Home Size</FieldLabel>
-                      <CyberInput>
-                        <select
-                          name="apartmentSize"
-                          value={formData.apartmentSize}
-                          onChange={handleChange}
-                          className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white outline-none"
-                        >
-                          <option value="" disabled className="bg-[#08111d] text-white/50">
-                            Select size
-                          </option>
-                          {apartmentOptions.map((o) => (
-                            <option key={o} value={o} className="bg-[#08111d] text-white">
-                              {o}
-                            </option>
-                          ))}
-                        </select>
-                      </CyberInput>
-                    </label>
-                  </div>
-
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <label className="flex flex-col gap-2">
-                      <FieldLabel>Full Name</FieldLabel>
-                      <CyberInput>
-                        <input
-                          type="text"
-                          name="fullName"
-                          value={formData.fullName}
-                          onChange={handleChange}
-                          placeholder="John Doe"
-                          className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white placeholder:text-white/30 outline-none"
-                        />
-                      </CyberInput>
-                    </label>
-
-                    <label className="flex flex-col gap-2">
-                      <FieldLabel>Email Address</FieldLabel>
-                      <CyberInput>
-                        <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder="john@example.com"
-                          className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white placeholder:text-white/30 outline-none"
-                        />
-                      </CyberInput>
-                    </label>
-                  </div>
+                  <label className="flex flex-col gap-2">
+                    <FieldLabel>Name</FieldLabel>
+                    <CyberInput>
+                      <input
+                        type="text"
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        placeholder="Name"
+                        className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white placeholder:text-white/30 outline-none"
+                      />
+                    </CyberInput>
+                  </label>
 
                   <label className="flex flex-col gap-2">
-                    <FieldLabel>Phone Number</FieldLabel>
+                    <FieldLabel>Email Address</FieldLabel>
+                    <CyberInput>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Email Address"
+                        className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white placeholder:text-white/30 outline-none"
+                      />
+                    </CyberInput>
+                  </label>
+
+                  <label className="flex flex-col gap-2">
+                    <FieldLabel>Phone</FieldLabel>
                     <CyberInput>
                       <input
                         type="tel"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="(555) 123-4567"
+                        placeholder="Phone"
                         className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white placeholder:text-white/30 outline-none"
                       />
                     </CyberInput>
                   </label>
 
-                  <div className="rounded-[18px] border border-white/10 bg-white/[0.03] p-4">
-                    <p className="mb-3 text-[10px] uppercase tracking-[0.18em] text-white/40">
-                      Quote summary
-                    </p>
-                    <div className="grid grid-cols-1 gap-2 text-[12px] sm:grid-cols-2">
-                      {[
-                        ["From", formData.movingFrom],
-                        ["To", formData.movingTo],
-                        ["Date", formData.date],
-                        ["Size", formData.apartmentSize],
-                        ["Name", formData.fullName],
-                        ["Phone", formData.phone],
-                      ].map(([label, val]) => (
-                        <p key={label} className="text-white/68">
-                          <span className="text-white/36">{label}: </span>
-                          {val || "—"}
-                        </p>
-                      ))}
+                  <label className="flex flex-col gap-2">
+                    <FieldLabel>Choose Date</FieldLabel>
+                    <CyberInput>
+                      <input
+                        type="date"
+                        name="date"
+                        min={minDate}
+                        value={formData.date}
+                        onChange={handleChange}
+                        placeholder="Choose Date"
+                        className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white outline-none [color-scheme:dark]"
+                      />
+                    </CyberInput>
+                  </label>
+
+                  <label className="flex flex-col gap-2">
+                    <FieldLabel>Moving Form</FieldLabel>
+                    <div className="relative">
+                      <CyberInput>
+                        <input
+                          type="text"
+                          name="movingFrom"
+                          value={formData.movingFrom}
+                          onChange={handleChange}
+                          onFocus={() => setFromOpen(fromSuggestions.length > 0)}
+                          onBlur={() => setTimeout(() => setFromOpen(false), 160)}
+                          autoComplete="off"
+                          placeholder="City or address"
+                          className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white placeholder:text-white/30 outline-none"
+                        />
+                      </CyberInput>
+
+                      {fromOpen && fromSuggestions.length > 0 ? (
+                        <div className="absolute left-0 right-0 top-[calc(100%+6px)] z-30 overflow-hidden rounded-[14px] border border-white/10 bg-[#0b1522] shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
+                          {fromSuggestions.map((s, idx) => (
+                            <button
+                              key={s}
+                              type="button"
+                              onMouseDown={() => pickFrom(s)}
+                              className={`block w-full px-4 py-3 text-left text-[13px] text-white/78 transition hover:bg-white/[0.05] hover:text-[#8ef4ff] ${
+                                idx !== fromSuggestions.length - 1 ? "border-b border-white/8" : ""
+                              }`}
+                            >
+                              {s}
+                            </button>
+                          ))}
+                        </div>
+                      ) : null}
                     </div>
-                  </div>
+                  </label>
+
+                  <label className="flex flex-col gap-2">
+                    <FieldLabel>Moving To</FieldLabel>
+                    <div className="relative">
+                      <CyberInput>
+                        <input
+                          type="text"
+                          name="movingTo"
+                          value={formData.movingTo}
+                          onChange={handleChange}
+                          onFocus={() => setToOpen(toSuggestions.length > 0)}
+                          onBlur={() => setTimeout(() => setToOpen(false), 160)}
+                          autoComplete="off"
+                          placeholder="City or address"
+                          className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white placeholder:text-white/30 outline-none"
+                        />
+                      </CyberInput>
+
+                      {toOpen && toSuggestions.length > 0 ? (
+                        <div className="absolute left-0 right-0 top-[calc(100%+6px)] z-30 overflow-hidden rounded-[14px] border border-white/10 bg-[#0b1522] shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
+                          {toSuggestions.map((s, idx) => (
+                            <button
+                              key={s}
+                              type="button"
+                              onMouseDown={() => pickTo(s)}
+                              className={`block w-full px-4 py-3 text-left text-[13px] text-white/78 transition hover:bg-white/[0.05] hover:text-[#8ef4ff] ${
+                                idx !== toSuggestions.length - 1 ? "border-b border-white/8" : ""
+                              }`}
+                            >
+                              {s}
+                            </button>
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  </label>
 
                   <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
                     <p className="text-[11px] leading-relaxed text-white/36">
-                      Submission and data storage can be connected later.
+                      Yourr Data is Safe with us.
                     </p>
 
                     <button
