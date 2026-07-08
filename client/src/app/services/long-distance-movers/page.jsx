@@ -1,82 +1,86 @@
 "use client";
 
+
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { unbounded } from "@/lib/fonts";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
+
 const benefits = [
-  "Nationwide coverage",
-  "Careful long-haul handling",
-  "Clear upfront pricing",
-  "Flexible delivery planning",
+  "Cross-country moving support",
+  "Careful long-distance handling",
+  "Clear upfront moving quotes",
+  "Flexible delivery scheduling",
   "Dedicated move coordination",
-  "Reliable scheduling",
+  "Reliable moving timelines",
 ];
+
 
 const services = [
   {
     id: "planning",
-    title: "Interstate move planning",
-    short: "Structured coordination for long-haul moves",
+    title: "Long-distance move planning",
+    short: "Structured planning for cross-country relocations",
     category: "Planning",
     body:
-      "Long distance relocations require more than standard scheduling. We help organize timing, routing, inventory planning, and delivery expectations so your move stays clear and well-managed from the start.",
+      "Long-distance moves need detailed coordination from pickup to delivery. We help plan timing, route expectations, inventory, and scheduling so your move stays organized and easier to manage from the beginning.",
     detail: [
-      "Route and timeline planning",
-      "Move scope coordination",
-      "Delivery window guidance",
+      "Route and delivery timeline planning",
+      "Inventory and move scope review",
+      "Long-distance scheduling guidance",
     ],
   },
   {
     id: "packing",
-    title: "Packing for extended transit",
-    short: "Protection designed for longer journeys",
+    title: "Packing for long-distance moving",
+    short: "Packing designed for extended transport",
     category: "Preparation",
     body:
-      "For long-haul transportation, packing needs to hold up over distance, handling, and time in transit. We use protective materials and organized packing methods that help reduce shifting and damage risk.",
+      "Long-distance moving requires stronger packing and better protection for items that stay in transit longer. We use durable moving materials and organized packing methods to help reduce shifting and damage risk.",
     detail: [
-      "Protective wrapping for fragile items",
-      "Heavy-duty box selection",
+      "Protective packing for fragile items",
+      "Heavy-duty moving boxes",
       "Organized room-by-room packing",
     ],
   },
   {
     id: "furniture",
-    title: "Furniture disassembly & setup",
-    short: "Prepared for transport and reassembly",
+    title: "Furniture disassembly and setup",
+    short: "Prepared for safe transport and reassembly",
     category: "Handling",
     body:
-      "Bulky furniture is carefully disassembled when needed, secured for transport, and prepared for placement at destination. This helps protect larger pieces throughout a longer moving process.",
+      "Large furniture is disassembled when needed, wrapped for protection, and prepared for safer long-distance transport. Once delivered, we help reassemble and place key items at your destination.",
     detail: [
-      "Bed and table breakdown",
+      "Bed, table, and frame disassembly",
       "Protective padding and wrapping",
-      "Reassembly at destination",
+      "Reassembly at the new location",
     ],
   },
   {
     id: "loading",
-    title: "Loading & unloading support",
-    short: "Organized handling at both ends",
+    title: "Loading and unloading support",
+    short: "Organized handling at origin and destination",
     category: "Execution",
     body:
-      "Items are loaded with long-distance transport in mind, using an organized approach that supports safer travel and smoother unloading. At arrival, placement is handled with the same care and coordination.",
+      "We load your belongings with long-haul transportation in mind, using a structured approach that supports safer travel and smoother unloading. At delivery, items are handled carefully and placed room by room.",
     detail: [
-      "Structured truck loading",
-      "Careful unloading on arrival",
+      "Structured truck loading process",
+      "Careful unloading at destination",
       "Room-by-room item placement",
     ],
   },
   {
     id: "protection",
     title: "Belonging protection",
-    short: "Extra care for long-distance transit",
+    short: "Extra protection for long-haul transport",
     category: "Protection",
     body:
-      "Distance adds more handling time and movement, so protection matters even more. We use wraps, padding, and protective materials to help safeguard furniture, boxed goods, and sensitive belongings during transport.",
+      "Because long-distance moves involve more transit time and more handling, we use moving blankets, shrink wrap, padding, and protective materials to help safeguard furniture, boxes, and delicate belongings.",
     detail: [
       "Shrink wrap and moving blankets",
       "Surface and corner protection",
@@ -85,18 +89,19 @@ const services = [
   },
   {
     id: "transport",
-    title: "Nationwide transportation",
-    short: "Coordinated delivery across Canada",
+    title: "Long-distance transportation",
+    short: "Reliable delivery across cities and provinces",
     category: "Transport",
     body:
-      "Our long distance moving service is built for relocations across cities and provinces. We coordinate transportation timelines carefully so you have a clearer understanding of how your move progresses from pickup to delivery.",
+      "Our long-distance moving service is built for relocations across cities, regions, and provinces in Canada. We coordinate transportation and delivery timing carefully so you know what to expect from pickup through arrival.",
     detail: [
-      "Cross-province coordination",
+      "Cross-province move coordination",
       "Planned delivery scheduling",
-      "Clear move communication",
+      "Clear moving updates",
     ],
   },
 ];
+
 
 function ServiceRow({ service, index, isOpen, onToggle }) {
   const bodyRef = useRef(null);
@@ -106,16 +111,20 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
   const panelId = `service-panel-${rowId}`;
   const buttonId = `service-trigger-${rowId}`;
 
+
   useEffect(() => {
     const body = bodyRef.current;
     const inner = innerRef.current;
     if (!body || !inner) return;
 
+
     gsap.killTweensOf(body);
     gsap.killTweensOf(inner.querySelectorAll("[data-dot]"));
 
+
     if (isOpen) {
       gsap.set(body, { display: "block" });
+
 
       gsap.fromTo(
         body,
@@ -130,6 +139,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
           },
         }
       );
+
 
       if (detailRef.current) {
         const dots = detailRef.current.querySelectorAll("[data-dot]");
@@ -163,6 +173,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
     }
   }, [isOpen]);
 
+
   return (
     <div
       className={`group relative border-b transition-colors duration-300 ${
@@ -184,6 +195,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
           {String(index + 1).padStart(2, "0")}
         </span>
 
+
         <div className="flex min-w-0 flex-1 flex-col gap-1 md:flex-row md:items-center md:gap-6">
           <span
             className={`${unbounded.className} text-[1.12rem] font-[500] tracking-[-0.04em] transition-colors duration-300 md:text-[1.22rem] ${
@@ -193,6 +205,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
             {service.title}
           </span>
 
+
           <span
             className={`text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-300 ${
               isOpen ? "text-[#004FEC]/80" : "text-white/34"
@@ -201,6 +214,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
             {service.short}
           </span>
         </div>
+
 
         <div
           className={`ml-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
@@ -227,6 +241,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
         </div>
       </button>
 
+
       <div
         ref={bodyRef}
         id={panelId}
@@ -244,6 +259,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
             <p className="max-w-[54ch] text-[15px] leading-[1.88] text-white/68">
               {service.body}
             </p>
+
 
             <div ref={detailRef} className="flex flex-col gap-3 lg:min-w-[220px]">
               {service.detail.map((d) => (
@@ -264,6 +280,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
   );
 }
 
+
 export default function LongDistanceMoversPage() {
   const pageRef = useRef(null);
   const cursorRef = useRef(null);
@@ -272,12 +289,15 @@ export default function LongDistanceMoversPage() {
   const [openId, setOpenId] = useState("planning");
   const [benefitIndex, setBenefitIndex] = useState(0);
 
+
   const currentService =
     services.find((service) => service.id === openId) || services[0];
+
 
   const handleToggle = (id) => {
     setOpenId(id);
   };
+
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -286,11 +306,14 @@ export default function LongDistanceMoversPage() {
     return () => clearInterval(id);
   }, []);
 
+
   useEffect(() => {
     const page = pageRef.current;
     if (!page) return;
 
+
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 
     const ctx = gsap.context(() => {
       if (reduced) {
@@ -300,6 +323,7 @@ export default function LongDistanceMoversPage() {
         );
         return;
       }
+
 
       gsap
         .timeline({ defaults: { ease: "power3.out" } })
@@ -327,6 +351,7 @@ export default function LongDistanceMoversPage() {
           0.26
         );
 
+
       gsap.utils.toArray("[data-reveal]").forEach((el) => {
         gsap.fromTo(
           el,
@@ -344,6 +369,7 @@ export default function LongDistanceMoversPage() {
           }
         );
       });
+
 
       gsap.utils.toArray("[data-acc-row]").forEach((el, i) => {
         gsap.fromTo(
@@ -364,6 +390,7 @@ export default function LongDistanceMoversPage() {
         );
       });
 
+
       gsap.fromTo(
         "[data-strip]",
         { opacity: 0 },
@@ -379,8 +406,10 @@ export default function LongDistanceMoversPage() {
         }
       );
 
+
       magneticRefs.current.forEach((btn) => {
         if (!btn || reduced) return;
+
 
         const onMove = (e) => {
           const r = btn.getBoundingClientRect();
@@ -392,6 +421,7 @@ export default function LongDistanceMoversPage() {
           });
         };
 
+
         const onLeave = () =>
           gsap.to(btn, {
             x: 0,
@@ -400,11 +430,13 @@ export default function LongDistanceMoversPage() {
             ease: "power3.out",
           });
 
+
         btn.addEventListener("mousemove", onMove);
         btn.addEventListener("mouseleave", onLeave);
         btn._onMove = onMove;
         btn._onLeave = onLeave;
       });
+
 
       if (spotlightRef.current) {
         gsap.to(spotlightRef.current, {
@@ -420,17 +452,21 @@ export default function LongDistanceMoversPage() {
       }
     }, page);
 
+
     const cursor = cursorRef.current;
     let raf;
     let mouse = { x: 0, y: 0 };
     let pos = { x: 0, y: 0 };
+
 
     const onMouseMove = (e) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
     };
 
+
     const lerp = (a, b, t) => a + (b - a) * t;
+
 
     const animateCursor = () => {
       pos.x = lerp(pos.x, mouse.x, 0.1);
@@ -441,12 +477,15 @@ export default function LongDistanceMoversPage() {
       raf = requestAnimationFrame(animateCursor);
     };
 
+
     window.addEventListener("mousemove", onMouseMove);
     raf = requestAnimationFrame(animateCursor);
+
 
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
       cancelAnimationFrame(raf);
+
 
       magneticRefs.current.forEach((btn) => {
         if (!btn) return;
@@ -454,9 +493,11 @@ export default function LongDistanceMoversPage() {
         if (btn._onLeave) btn.removeEventListener("mouseleave", btn._onLeave);
       });
 
+
       ctx.revert();
     };
   }, []);
+
 
   return (
     <main ref={pageRef} className="relative overflow-hidden bg-[#06111d] text-white py-8">
@@ -466,9 +507,11 @@ export default function LongDistanceMoversPage() {
         className="pointer-events-none fixed left-0 top-0 z-0 h-[400px] w-[400px] rounded-full bg-[#004FEC]/[0.06] blur-[100px] will-change-transform"
       />
 
+
       <header className="relative z-10 overflow-hidden border-b border-white/10 bg-[#07111d]/90 backdrop-blur-[12px]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(34,211,238,0.12),transparent_22%),radial-gradient(circle_at_88%_80%,rgba(34,211,238,0.07),transparent_20%)]" />
         <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:60px_60px]" />
+
 
         <div className="site-container relative z-10 py-16 md:py-22">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
@@ -484,6 +527,7 @@ export default function LongDistanceMoversPage() {
                 <span className="text-white/70">Long Distance Movers</span>
               </nav>
 
+
               <h1
                 data-h-title
                 className={`${unbounded.className} max-w-[10ch] text-[clamp(3.2rem,7vw,6.8rem)] font-[500] leading-[0.88] tracking-[-0.07em] text-white`}
@@ -491,14 +535,15 @@ export default function LongDistanceMoversPage() {
                 Long Distance Movers
               </h1>
 
+
               <p
                 data-h-sub
                 className="mt-6 max-w-[48ch] text-[15px] leading-[1.88] text-white/68 md:text-[16px]"
               >
-                Professional long-distance moving support with organized planning,
-                careful transport handling, and dependable coordination from origin to destination.
+                Trusted long-distance movers for cross-country and cross-province relocations with careful packing, secure transport, and reliable coordination from pickup to delivery.
               </p>
             </div>
+
 
             <div data-h-cta className="flex flex-col items-start gap-6 lg:items-end">
               <div className="relative h-10 w-[260px] overflow-hidden">
@@ -516,6 +561,7 @@ export default function LongDistanceMoversPage() {
                 ))}
               </div>
 
+
               <div className="flex flex-wrap gap-3">
                 <Link
                   ref={(el) => (magneticRefs.current[0] = el)}
@@ -524,6 +570,7 @@ export default function LongDistanceMoversPage() {
                 >
                   Get a moving quote
                 </Link>
+
 
                 <Link
                   ref={(el) => (magneticRefs.current[1] = el)}
@@ -538,6 +585,7 @@ export default function LongDistanceMoversPage() {
         </div>
       </header>
 
+
       <section className="relative z-10 bg-[#07111d]">
         <div className="site-container py-18 md:py-24">
           <div className="grid gap-14 lg:grid-cols-[280px_1fr] lg:gap-16 xl:grid-cols-[320px_1fr]">
@@ -549,20 +597,22 @@ export default function LongDistanceMoversPage() {
                 <h2
                   className={`${unbounded.className} text-[clamp(1.9rem,3.5vw,2.8rem)] font-[500] leading-[0.97] tracking-[-0.05em] text-white`}
                 >
-                  Everything needed for a long-haul move
+                  Complete support for long-distance moving
                 </h2>
                 <p className="mt-5 text-[14px] leading-[1.88] text-white/62">
-                  Open each section to see what is included in our long distance
-                  movers service and how each part supports a smoother relocation.
+                  Open each section to see what is included in our long-distance moving service and how we support a smoother cross-country relocation.
                 </p>
 
+
                 <div className="mt-8 h-px w-full bg-gradient-to-r from-[#004FEC]/45 via-white/12 to-transparent" />
+
 
                 <div className="mt-7 text-[12px] uppercase tracking-[0.16em] text-white/38">
                   Viewing: {currentService.title}
                 </div>
               </div>
             </div>
+
 
             <div>
               <div className="border-t border-white/10">
@@ -582,6 +632,7 @@ export default function LongDistanceMoversPage() {
         </div>
       </section>
 
+
       <section className="relative z-10 overflow-hidden border-y border-white/10 bg-[#081623] py-6">
         <div data-strip className="flex items-center gap-0">
           {[...benefits, ...benefits, ...benefits].map((b, i) => (
@@ -594,6 +645,7 @@ export default function LongDistanceMoversPage() {
             </div>
           ))}
         </div>
+
 
         <style jsx>{`
           [data-strip] {
@@ -616,6 +668,7 @@ export default function LongDistanceMoversPage() {
         `}</style>
       </section>
 
+
       <section className="relative z-10 bg-[#06111d]">
         <div className="site-container py-18 md:py-24">
           <div
@@ -627,6 +680,7 @@ export default function LongDistanceMoversPage() {
             <div className="absolute -bottom-12 right-0 h-48 w-48 rounded-full bg-[#004FEC]/8 blur-[100px]" />
             <div className="absolute inset-0 opacity-[0.055] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:48px_48px]" />
 
+
             <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/48">
@@ -635,13 +689,13 @@ export default function LongDistanceMoversPage() {
                 <h2
                   className={`${unbounded.className} max-w-[11ch] text-[clamp(2rem,4.2vw,3.6rem)] font-[500] leading-[0.95] tracking-[-0.055em] text-white`}
                 >
-                  Let's plan your long distance move
+                  Book long-distance movers with a clear plan and quote
                 </h2>
                 <p className="mt-4 max-w-[52ch] text-[15px] leading-[1.85] text-white/64">
-                  Share your destination, timing, and move details and we’ll help
-                  you shape the right long-distance moving support with a clear quote.
+                  Share your origin, destination, move date, and inventory details to get a clear quote for long-distance moving, cross-country relocations, and province-to-province moves.
                 </p>
               </div>
+
 
               <div className="flex flex-wrap gap-3">
                 <Link
@@ -651,6 +705,7 @@ export default function LongDistanceMoversPage() {
                 >
                   Get a moving quote
                 </Link>
+
 
                 <Link
                   ref={(el) => (magneticRefs.current[3] = el)}

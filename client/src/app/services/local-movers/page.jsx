@@ -1,102 +1,107 @@
 "use client";
 
+
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { unbounded } from "@/lib/fonts";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
+
 const benefits = [
-  "Safe & careful handling",
-  "No hidden fees",
-  "Flexible scheduling",
-  "Trained local team",
-  "Transparent pricing",
-  "Same-day availability",
+  "Local movers you can trust",
+  "No hidden moving fees",
+  "Flexible moving dates",
+  "Professional moving crew",
+  "Transparent moving quotes",
+  "Same-day local movers",
 ];
+
 
 const services = [
   {
     id: "planning",
-    title: "Custom move planning",
-    short: "Tailored scope for every move",
+    title: "Local move planning",
+    short: "Custom planning for home and apartment moves",
     category: "Planning",
     body:
-      "We assess your home size, access points, special items, and timeline to build a structured plan before anything is scheduled. Nothing begins without a clear scope in place.",
+      "We review your home size, building access, move date, inventory, and any special handling needs to create a clear local moving plan before your booking is confirmed.",
     detail: [
-      "Home & apartment assessment",
-      "Route pre-planning",
-      "Scheduling around your availability",
+      "Apartment and house move assessment",
+      "Access, parking, and route planning",
+      "Scheduling that fits your move date",
     ],
   },
   {
     id: "packing",
-    title: "Packing support",
-    short: "Optional full or partial packing",
+    title: "Packing services",
+    short: "Full or partial packing for local moves",
     category: "Preparation",
     body:
-      "Our team handles protective wrapping, box selection, and careful labeling for fragile and valuable items. Partial packing is available if you prefer to handle some rooms yourself.",
+      "Our local movers can pack your entire home or only the rooms you need help with. We use quality moving boxes, protective wrap, and careful labeling for fragile, valuable, and everyday items.",
     detail: [
-      "Fragile item specialization",
-      "Room-by-room labeling",
-      "Bubble wrap & quality boxes provided",
+      "Fragile and delicate item packing",
+      "Room-by-room box labeling",
+      "Moving boxes and packing materials",
     ],
   },
   {
     id: "furniture",
-    title: "Furniture handling",
-    short: "Disassembly, protection & placement",
+    title: "Furniture moving",
+    short: "Disassembly, protection, and setup",
     category: "Handling",
     body:
-      "Large furniture is carefully disassembled where needed, wrapped for protection in transit, and reassembled at your destination. We handle tight doorways, staircases, and elevators.",
+      "We handle sofas, beds, tables, desks, wardrobes, and other large furniture with the care required for safe local moving. Items are disassembled when needed, protected for transit, and placed where you want them at delivery.",
     detail: [
-      "Bed & desk disassembly",
-      "Blanket & pad wrapping",
-      "Placement at destination",
+      "Bed, desk, and table disassembly",
+      "Protective wrapping for furniture",
+      "Reassembly and placement on arrival",
     ],
   },
   {
     id: "loading",
-    title: "Loading & unloading",
-    short: "Organized truck work, both ends",
+    title: "Loading and unloading",
+    short: "Efficient moving day support from start to finish",
     category: "Execution",
     body:
-      "Every item is loaded in a deliberate order to minimize movement in transit and unloaded with room-by-room coordination at the new home. No rushed stacking.",
+      "Our team loads your belongings in a structured order to reduce shifting during transport and unloads them room by room at your new place. This keeps your local move organized, efficient, and easier to settle into.",
     detail: [
-      "Weight-balanced loading",
-      "Room assignment on delivery",
+      "Efficient truck loading strategy",
+      "Room-by-room unloading",
       "Furniture placement included",
     ],
   },
   {
     id: "protection",
-    title: "Belonging protection",
-    short: "Materials matched to item type",
+    title: "Home and item protection",
+    short: "Protection for belongings and property",
     category: "Protection",
     body:
-      "We use protective floor runners, corner guards, door jamb protectors, and shrink wrap throughout the move — not just on the fragile items. Your property is protected at both locations.",
+      "We use floor runners, corner guards, door frame protection, moving blankets, and shrink wrap to help protect both your belongings and your property during the move.",
     detail: [
-      "Floor & wall runners",
-      "Corner guards on doorways",
-      "Shrink wrap for upholstered items",
+      "Floor and entryway protection",
+      "Corner and doorway guards",
+      "Shrink wrap for soft furnishings",
     ],
   },
   {
     id: "transport",
-    title: "Local transport",
-    short: "In-city delivery with confirmed timing",
+    title: "Local moving transport",
+    short: "Reliable same-city moving delivery",
     category: "Transport",
     body:
-      "All local moves are handled with GPS-routed vehicles, confirmed arrival windows, and a crew that communicates throughout. You will know exactly where your belongings are.",
+      "Our local moving service is built for same-city and nearby relocations with confirmed arrival windows, direct transport, and a crew that stays in touch throughout your move.",
     detail: [
-      "Confirmed arrival windows",
-      "Direct A-to-B transport",
-      "Real-time crew communication",
+      "Confirmed arrival time windows",
+      "Direct local delivery routes",
+      "Clear crew communication",
     ],
   },
 ];
+
 
 function ServiceRow({ service, index, isOpen, onToggle }) {
   const bodyRef = useRef(null);
@@ -106,16 +111,20 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
   const panelId = `service-panel-${rowId}`;
   const buttonId = `service-trigger-${rowId}`;
 
+
   useEffect(() => {
     const body = bodyRef.current;
     const inner = innerRef.current;
     if (!body || !inner) return;
 
+
     gsap.killTweensOf(body);
     gsap.killTweensOf(inner.querySelectorAll("[data-dot]"));
 
+
     if (isOpen) {
       gsap.set(body, { display: "block" });
+
 
       gsap.fromTo(
         body,
@@ -130,6 +139,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
           },
         }
       );
+
 
       if (detailRef.current) {
         const dots = detailRef.current.querySelectorAll("[data-dot]");
@@ -163,6 +173,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
     }
   }, [isOpen]);
 
+
   return (
     <div
       className={`group relative border-b transition-colors duration-300 ${
@@ -184,6 +195,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
           {String(index + 1).padStart(2, "0")}
         </span>
 
+
         <div className="flex min-w-0 flex-1 flex-col gap-1 md:flex-row md:items-center md:gap-6">
           <span
             className={`${unbounded.className} text-[1.12rem] font-[500] tracking-[-0.04em] transition-colors duration-300 md:text-[1.22rem] ${
@@ -193,6 +205,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
             {service.title}
           </span>
 
+
           <span
             className={`text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-300 ${
               isOpen ? "text-[#004FEC]/80" : "text-white/34"
@@ -201,6 +214,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
             {service.short}
           </span>
         </div>
+
 
         <div
           className={`ml-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
@@ -227,6 +241,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
         </div>
       </button>
 
+
       <div
         ref={bodyRef}
         id={panelId}
@@ -244,6 +259,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
             <p className="max-w-[54ch] text-[15px] leading-[1.88] text-white/68">
               {service.body}
             </p>
+
 
             <div ref={detailRef} className="flex flex-col gap-3 lg:min-w-[220px]">
               {service.detail.map((d) => (
@@ -264,6 +280,7 @@ function ServiceRow({ service, index, isOpen, onToggle }) {
   );
 }
 
+
 export default function LocalMoversPage() {
   const pageRef = useRef(null);
   const cursorRef = useRef(null);
@@ -272,12 +289,15 @@ export default function LocalMoversPage() {
   const [openId, setOpenId] = useState("planning");
   const [benefitIndex, setBenefitIndex] = useState(0);
 
+
   const currentService =
     services.find((service) => service.id === openId) || services[0];
+
 
   const handleToggle = (id) => {
     setOpenId(id);
   };
+
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -286,11 +306,14 @@ export default function LocalMoversPage() {
     return () => clearInterval(id);
   }, []);
 
+
   useEffect(() => {
     const page = pageRef.current;
     if (!page) return;
 
+
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 
     const ctx = gsap.context(() => {
       if (reduced) {
@@ -300,6 +323,7 @@ export default function LocalMoversPage() {
         );
         return;
       }
+
 
       gsap
         .timeline({ defaults: { ease: "power3.out" } })
@@ -327,6 +351,7 @@ export default function LocalMoversPage() {
           0.26
         );
 
+
       gsap.utils.toArray("[data-reveal]").forEach((el) => {
         gsap.fromTo(
           el,
@@ -344,6 +369,7 @@ export default function LocalMoversPage() {
           }
         );
       });
+
 
       gsap.utils.toArray("[data-acc-row]").forEach((el, i) => {
         gsap.fromTo(
@@ -364,6 +390,7 @@ export default function LocalMoversPage() {
         );
       });
 
+
       gsap.fromTo(
         "[data-strip]",
         { opacity: 0 },
@@ -379,8 +406,10 @@ export default function LocalMoversPage() {
         }
       );
 
+
       magneticRefs.current.forEach((btn) => {
         if (!btn || reduced) return;
+
 
         const onMove = (e) => {
           const r = btn.getBoundingClientRect();
@@ -392,6 +421,7 @@ export default function LocalMoversPage() {
           });
         };
 
+
         const onLeave = () =>
           gsap.to(btn, {
             x: 0,
@@ -400,11 +430,13 @@ export default function LocalMoversPage() {
             ease: "power3.out",
           });
 
+
         btn.addEventListener("mousemove", onMove);
         btn.addEventListener("mouseleave", onLeave);
         btn._onMove = onMove;
         btn._onLeave = onLeave;
       });
+
 
       if (spotlightRef.current) {
         gsap.to(spotlightRef.current, {
@@ -420,17 +452,21 @@ export default function LocalMoversPage() {
       }
     }, page);
 
+
     const cursor = cursorRef.current;
     let raf;
     let mouse = { x: 0, y: 0 };
     let pos = { x: 0, y: 0 };
+
 
     const onMouseMove = (e) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
     };
 
+
     const lerp = (a, b, t) => a + (b - a) * t;
+
 
     const animateCursor = () => {
       pos.x = lerp(pos.x, mouse.x, 0.1);
@@ -441,12 +477,15 @@ export default function LocalMoversPage() {
       raf = requestAnimationFrame(animateCursor);
     };
 
+
     window.addEventListener("mousemove", onMouseMove);
     raf = requestAnimationFrame(animateCursor);
+
 
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
       cancelAnimationFrame(raf);
+
 
       magneticRefs.current.forEach((btn) => {
         if (!btn) return;
@@ -454,9 +493,11 @@ export default function LocalMoversPage() {
         if (btn._onLeave) btn.removeEventListener("mouseleave", btn._onLeave);
       });
 
+
       ctx.revert();
     };
   }, []);
+
 
   return (
     <main ref={pageRef} className="relative overflow-hidden bg-[#06111d] text-white py-8">
@@ -466,9 +507,11 @@ export default function LocalMoversPage() {
         className="pointer-events-none fixed left-0 top-0 z-0 h-[400px] w-[400px] rounded-full bg-[#004FEC]/[0.06] blur-[100px] will-change-transform"
       />
 
+
       <header className="relative z-10 overflow-hidden border-b border-white/10 bg-[#07111d]/90 backdrop-blur-[12px]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(34,211,238,0.12),transparent_22%),radial-gradient(circle_at_88%_80%,rgba(34,211,238,0.07),transparent_20%)]" />
         <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:60px_60px]" />
+
 
         <div className="site-container relative z-10 py-16 md:py-22">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
@@ -484,6 +527,7 @@ export default function LocalMoversPage() {
                 <span className="text-white/70">Local Movers</span>
               </nav>
 
+
               <h1
                 data-h-title
                 className={`${unbounded.className} max-w-[8ch] text-[clamp(3.2rem,7vw,6.8rem)] font-[500] leading-[0.88] tracking-[-0.07em] text-white`}
@@ -491,14 +535,15 @@ export default function LocalMoversPage() {
                 Local Movers
               </h1>
 
+
               <p
                 data-h-sub
                 className="mt-6 max-w-[46ch] text-[15px] leading-[1.88] text-white/68 md:text-[16px]"
               >
-                Organized same-city relocations with professional handling,
-                dependable timing, and a team that actually communicates.
+                Trusted local movers for apartments, houses, and offices with careful packing, secure transport, flexible scheduling, and clear moving quotes for same-city relocations.
               </p>
             </div>
+
 
             <div data-h-cta className="flex flex-col items-start gap-6 lg:items-end">
               <div className="relative h-10 w-[240px] overflow-hidden">
@@ -516,6 +561,7 @@ export default function LocalMoversPage() {
                 ))}
               </div>
 
+
               <div className="flex flex-wrap gap-3">
                 <Link
                   ref={(el) => (magneticRefs.current[0] = el)}
@@ -524,6 +570,7 @@ export default function LocalMoversPage() {
                 >
                   Get a free quote
                 </Link>
+
 
                 <Link
                   ref={(el) => (magneticRefs.current[1] = el)}
@@ -538,6 +585,7 @@ export default function LocalMoversPage() {
         </div>
       </header>
 
+
       <section className="relative z-10 bg-[#07111d]">
         <div className="site-container py-18 md:py-24">
           <div className="grid gap-14 lg:grid-cols-[280px_1fr] lg:gap-16 xl:grid-cols-[320px_1fr]">
@@ -549,20 +597,22 @@ export default function LocalMoversPage() {
                 <h2
                   className={`${unbounded.className} text-[clamp(1.9rem,3.5vw,2.8rem)] font-[500] leading-[0.97] tracking-[-0.05em] text-white`}
                 >
-                  Every part of your move, covered
+                  Complete local moving services from start to finish
                 </h2>
                 <p className="mt-5 text-[14px] leading-[1.88] text-white/62">
-                  Open each section to see exactly what is included in the local
-                  movers service.
+                  Open each section to see what is included in our local moving service for homes, apartments, and nearby relocations.
                 </p>
 
+
                 <div className="mt-8 h-px w-full bg-gradient-to-r from-[#004FEC]/45 via-white/12 to-transparent" />
+
 
                 <div className="mt-7 text-[12px] uppercase tracking-[0.16em] text-white/38">
                   Viewing: {currentService.title}
                 </div>
               </div>
             </div>
+
 
             <div>
               <div className="border-t border-white/10">
@@ -582,6 +632,7 @@ export default function LocalMoversPage() {
         </div>
       </section>
 
+
       <section className="relative z-10 overflow-hidden border-y border-white/10 bg-[#081623] py-6">
         <div data-strip className="flex items-center gap-0">
           {[...benefits, ...benefits, ...benefits].map((b, i) => (
@@ -594,6 +645,7 @@ export default function LocalMoversPage() {
             </div>
           ))}
         </div>
+
 
         <style jsx>{`
           [data-strip] {
@@ -616,6 +668,7 @@ export default function LocalMoversPage() {
         `}</style>
       </section>
 
+
       <section className="relative z-10 bg-[#06111d]">
         <div className="site-container py-18 md:py-24">
           <div
@@ -627,6 +680,7 @@ export default function LocalMoversPage() {
             <div className="absolute -bottom-12 right-0 h-48 w-48 rounded-full bg-[#004FEC]/8 blur-[100px]" />
             <div className="absolute inset-0 opacity-[0.055] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:48px_48px]" />
 
+
             <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/48">
@@ -635,13 +689,13 @@ export default function LocalMoversPage() {
                 <h2
                   className={`${unbounded.className} max-w-[10ch] text-[clamp(2rem,4.2vw,3.6rem)] font-[500] leading-[0.95] tracking-[-0.055em] text-white`}
                 >
-                  Let's plan your local move
+                  Book trusted local movers for your next move
                 </h2>
                 <p className="mt-4 max-w-[50ch] text-[15px] leading-[1.85] text-white/64">
-                  Share your move details and we’ll help you shape the right
-                  local moving support with a clear, no-pressure quote.
+                  Share your moving details and get a clear local moving quote for apartment moves, house moves, office relocations, and same-city moving services.
                 </p>
               </div>
+
 
               <div className="flex flex-wrap gap-3">
                 <Link
@@ -651,6 +705,7 @@ export default function LocalMoversPage() {
                 >
                   Get a free quote
                 </Link>
+
 
                 <Link
                   ref={(el) => (magneticRefs.current[3] = el)}
@@ -665,6 +720,5 @@ export default function LocalMoversPage() {
         </div>
       </section>
     </main>
-  );
+  );
 }
-

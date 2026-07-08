@@ -1,62 +1,69 @@
 "use client";
 
+
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { unbounded } from "@/lib/fonts";
 
+
 gsap.registerPlugin(ScrollTrigger);
+
 
 /* ─── DATA ─────────────────────────────────────────── */
 
+
 const principles = [
   {
-    title: "Structured communication",
-    text: "Every update, quote, and schedule is communicated in writing so nothing gets lost or misunderstood.",
+    title: "Clear quotes and written updates",
+    text: "Every moving quote, schedule, and service detail is shared clearly in writing, so you always know the cost, timeline, and next step before moving day.",
   },
   {
-    title: "Protected in transit",
-    text: "Items are assessed, wrapped, and secured before loading — handled as if they were our own.",
+    title: "Careful packing and secure transport",
+    text: "From furniture and fragile items to business equipment, everything is packed, wrapped, loaded, and transported with care by a trained moving team.",
   },
   {
-    title: "On-time, every time",
-    text: "We treat punctuality as a baseline standard, not an optional extra on moving day.",
+    title: "Reliable moving day execution",
+    text: "We show up on time, stay organized, and keep your local or long-distance move running smoothly from pickup to final delivery.",
   },
 ];
+
 
 const steps = [
   {
     number: "01",
     title: "Tell us about your move",
-    text: "Share your origin, destination, date, and any special items. We prepare around your specifics, not a generic template.",
+    text: "Share your pickup location, destination, move date, property type, and any special items. This helps us prepare the right moving plan for your home or business.",
   },
   {
     number: "02",
-    title: "Review your tailored plan",
-    text: "We send a clear scope, timeline, and pricing — no hidden fees, no vague estimates. You approve before anything moves.",
+    title: "Review your moving quote",
+    text: "We send a clear quote with scope, timeline, and pricing. No hidden fees, no vague estimates, just a straightforward moving service plan built around your needs.",
   },
   {
     number: "03",
-    title: "We handle the rest",
-    text: "Our crew arrives prepared. You track progress and stay informed. We deliver, unload, and confirm completion with you.",
+    title: "Move with confidence",
+    text: "Our movers arrive ready to pack, load, transport, and unload. Whether it is a local move, office relocation, or long-distance move, we keep you informed at every stage.",
   },
 ];
 
+
 const values = [
   {
-    title: "Honest from day one",
-    text: "We tell you what we can do, what it will cost, and how long it takes — before you commit.",
+    title: "Built on trust and transparency",
+    text: "We believe a professional moving company should be honest about pricing, timelines, and service expectations from the very first conversation.",
   },
   {
-    title: "Improving with every job",
-    text: "Every completed move feeds back into how we prepare, pack, and communicate on the next one.",
+    title: "Focused on better moving experiences",
+    text: "Each move helps us improve how we plan, pack, communicate, and deliver better residential and commercial moving services across Canada.",
   },
   {
-    title: "Accountable to outcomes",
-    text: "We don't disappear after delivery. If something isn't right, we address it directly and quickly.",
+    title: "Accountable after delivery",
+    text: "Our job does not end when the truck is unloaded. If you need support after the move, our team responds quickly and takes responsibility.",
   },
 ];
+
 
 const stats = [
   { value: 100, suffix: "%", label: "Transparent pricing" },
@@ -64,7 +71,9 @@ const stats = [
   { value: 0, suffix: " hidden fees", label: "Guaranteed" },
 ];
 
+
 /* ─── COMPONENT ─────────────────────────────────────── */
+
 
 export default function AboutPage() {
   const pageRef       = useRef(null);
@@ -75,16 +84,20 @@ export default function AboutPage() {
   const magneticRefs  = useRef([]);
   const cardGlowRefs  = useRef([]);
 
+
   useEffect(() => {
     const page = pageRef.current;
     if (!page) return;
 
+
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 
     const ctx = gsap.context(() => {
       /* ── baseline set ── */
       const reveals = gsap.utils.toArray("[data-reveal]");
       const cards   = gsap.utils.toArray("[data-card]");
+
 
       if (reduced) {
         gsap.set(
@@ -94,8 +107,10 @@ export default function AboutPage() {
         return;
       }
 
+
       gsap.set(reveals, { opacity: 0, y: 36 });
       gsap.set(cards,   { opacity: 0, y: 28, scale: 0.982 });
+
 
       /* ── hero entrance ── */
       gsap.timeline({ defaults: { ease: "power3.out" } })
@@ -104,6 +119,7 @@ export default function AboutPage() {
         .fromTo("[data-hero-text]",    { opacity: 0, y: 28 },            { opacity: 1, y: 0, duration: 0.72 }, 0.22)
         .fromTo("[data-hero-actions]", { opacity: 0, y: 22 },            { opacity: 1, y: 0, duration: 0.65 }, 0.36)
         .fromTo("[data-hero-panel]",   { opacity: 0, y: 32, scale: 0.984 },{ opacity: 1, y: 0, scale: 1, duration: 0.82 }, 0.20);
+
 
       /* ── hero parallax ── */
       gsap.to(heroBgRef.current, {
@@ -114,6 +130,7 @@ export default function AboutPage() {
         yPercent: -20, xPercent: 8, ease: "none",
         scrollTrigger: { trigger: "[data-hero]", start: "top top", end: "bottom top", scrub: true },
       });
+
 
       /* ── scroll reveals ── */
       reveals.forEach((el) =>
@@ -128,6 +145,7 @@ export default function AboutPage() {
           scrollTrigger: { trigger: el, start: "top 86%", once: true },
         })
       );
+
 
       /* ── process progress line ── */
       if (progressRef.current) {
@@ -144,6 +162,7 @@ export default function AboutPage() {
         );
       }
 
+
       /* ── animated counters ── */
       counterRefs.current.forEach((el) => {
         if (!el) return;
@@ -159,6 +178,7 @@ export default function AboutPage() {
         });
       });
 
+
       /* ── step cards stagger ── */
       gsap.utils.toArray("[data-step-card]").forEach((card, i) => {
         gsap.fromTo(
@@ -171,6 +191,7 @@ export default function AboutPage() {
           }
         );
       });
+
 
       /* ── magnetic buttons ── */
       magneticRefs.current.forEach((btn) => {
@@ -190,11 +211,13 @@ export default function AboutPage() {
         btn._onLeave = onLeave;
       });
 
+
       /* ── cursor-glow cards ── */
       cardGlowRefs.current.forEach((card) => {
         if (!card) return;
         const glow = card.querySelector("[data-inner-glow]");
         if (!glow) return;
+
 
         const onMove = (e) => {
           const r = card.getBoundingClientRect();
@@ -209,6 +232,7 @@ export default function AboutPage() {
           gsap.to(card, { y: 0,  borderColor: "rgba(255,255,255,0.10)", duration: 0.22, ease: "power2.out" });
         };
 
+
         card.addEventListener("mousemove",  onMove);
         card.addEventListener("mouseenter", onEnter);
         card.addEventListener("mouseleave", onLeave);
@@ -217,7 +241,9 @@ export default function AboutPage() {
         card._onLeave = onLeave;
       });
 
+
     }, page);
+
 
     return () => {
       magneticRefs.current.forEach((btn) => {
@@ -235,9 +261,11 @@ export default function AboutPage() {
     };
   }, []);
 
+
   /* ─── JSX ─────────────────────────────────────────── */
   return (
     <main ref={pageRef} className="overflow-hidden bg-[#06111d] text-white">
+
 
       {/* ══════════════ HERO ══════════════ */}
       {/* Purpose: Who Zentiq is */}
@@ -261,7 +289,9 @@ export default function AboutPage() {
         {/* subtle grid */}
         <div className="absolute inset-0 opacity-[0.09] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:72px_72px]" />
 
+
         <div className="site-container relative z-10 grid min-h-[100svh] items-end py-24 md:py-28 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14 lg:py-32">
+
 
           {/* left */}
           <div className="max-w-[760px]">
@@ -270,25 +300,25 @@ export default function AboutPage() {
               className="mb-6 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/55"
             >
               <span className="h-px w-10 bg-[#004FEC]/80" />
-              About Zentiq
+              About Zentiq Moving
             </p>
+
 
             <h1
               data-hero-title
               className={`${unbounded.className} max-w-[8ch] text-[clamp(3rem,7vw,6.8rem)] font-[500] leading-[0.9] tracking-[-0.065em] text-white`}
             >
-              Designed for the next era of moving
+              Trusted movers for local and long-distance relocations
             </h1>
+
 
             <p
               data-hero-text
               className="mt-7 max-w-[55ch] text-[15px] leading-[1.9] text-white/70 md:text-[16px]"
             >
-              Zentiq is a new moving and logistics company built around one
-              conviction: relocation should feel like a managed service, not a
-              stressful gamble. We handle the complexity so you can focus on
-              what comes next.
+              Zentiq is a professional moving company in Canada offering residential moving, commercial moving, packing services, and long-distance relocation support with clear communication from start to finish.
             </p>
+
 
             <div data-hero-actions className="mt-9 flex flex-wrap items-center gap-4">
               <Link
@@ -308,6 +338,7 @@ export default function AboutPage() {
             </div>
           </div>
 
+
           {/* right panel */}
           <div className="mt-14 lg:mt-0 lg:justify-self-end">
             <div
@@ -317,15 +348,15 @@ export default function AboutPage() {
               <div className="pointer-events-none absolute -left-12 top-0 h-36 w-36 rounded-full bg-[#004FEC]/14 blur-[80px]" />
               <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#004FEC]/10 blur-[90px]" />
 
+
               <div className="relative z-10">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50">
                   Our commitment
                 </p>
                 <p className="mt-4 text-[15px] leading-[1.85] text-white/76">
-                  Every Zentiq move comes with a written plan, confirmed pricing,
-                  and a dedicated point of contact — no chasing, no surprises,
-                  no loose ends.
+                  Every move includes a written plan, transparent pricing, and a dedicated point of contact, so your home move, office relocation, or long-distance move stays organized and stress-free.
                 </p>
+
 
                 {/* animated stat counters */}
                 <div className="mt-7 grid grid-cols-3 gap-3">
@@ -344,18 +375,21 @@ export default function AboutPage() {
                   ))}
                 </div>
 
+
                 <div className="mt-6 h-px w-full bg-gradient-to-r from-[#004FEC]/45 via-white/12 to-transparent" />
 
+
                 <p className="mt-5 text-[13px] leading-[1.8] text-white/55">
-                  Operating across Canada — residential, commercial, and
-                  long-distance relocation services.
+                  Operating across Canada with local moving, long-distance moving, packing, and commercial relocation services.
                 </p>
               </div>
             </div>
           </div>
 
+
         </div>
       </section>
+
 
 
       {/* ══════════════ WHY WE STARTED ══════════════ */}
@@ -363,32 +397,29 @@ export default function AboutPage() {
       <section className="relative overflow-hidden border-b border-white/10 bg-[#071420]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_30%,rgba(34,211,238,0.09),transparent_22%),radial-gradient(circle_at_86%_72%,rgba(34,211,238,0.06),transparent_24%)]" />
 
+
         <div className="site-container relative z-10 grid gap-12 py-20 md:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div data-reveal>
             <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50">
               Why we started
             </p>
             <h2 className={`${unbounded.className} max-w-[9ch] text-[clamp(2.2rem,5vw,4.3rem)] font-[500] leading-[0.93] tracking-[-0.055em] text-white`}>
-              Moving was overdue for a rethink
+              A moving company built around reliability
             </h2>
           </div>
 
+
           <div data-reveal className="grid gap-5">
             <p className="max-w-[62ch] text-[15px] leading-[1.9] text-white/72 md:text-[16px]">
-              Most people dread moving — not because of the physical work, but
-              because of the uncertainty. Unclear quotes, unreturned calls, and
-              last-minute surprises are the industry norm. We built Zentiq to
-              change that expectation from the ground up.
+              Too many people searching for movers deal with delayed replies, confusing estimates, and poor communication. Zentiq was built to offer dependable moving services with clear pricing, careful handling, and better customer support from the first call.
             </p>
             <p className="max-w-[62ch] text-[15px] leading-[1.9] text-white/72 md:text-[16px]">
-              As a new company, we have the advantage of building our systems
-              correctly from the start — no legacy habits, no shortcuts, just
-              a clean and accountable service model designed around the
-              customer's actual experience.
+              We created our process to make local moving, long-distance moving, and office relocation simpler for customers who want a professional team they can trust with their belongings, schedule, and delivery timeline.
             </p>
           </div>
         </div>
       </section>
+
 
 
       {/* ══════════════ OPERATING STANDARDS ══════════════ */}
@@ -400,9 +431,10 @@ export default function AboutPage() {
               Operating standards
             </p>
             <h2 className={`${unbounded.className} text-[clamp(2.2rem,4.8vw,4rem)] font-[500] leading-[0.95] tracking-[-0.05em] text-white`}>
-              The standards every job is held to
+              The standards behind every move
             </h2>
           </div>
+
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {principles.map((item, index) => (
@@ -434,6 +466,7 @@ export default function AboutPage() {
       </section>
 
 
+
       {/* ══════════════ HOW IT WORKS ══════════════ */}
       {/* Purpose: Concrete steps a customer goes through */}
       <section className="relative overflow-hidden border-y border-white/10 bg-[#081523]">
@@ -443,9 +476,10 @@ export default function AboutPage() {
               How it works
             </p>
             <h2 className={`${unbounded.className} text-[clamp(2.2rem,4.8vw,4rem)] font-[500] leading-[0.95] tracking-[-0.05em] text-white`}>
-              Three steps. No surprises.
+              Three steps to a smoother move
             </h2>
           </div>
+
 
           <div className="relative mt-12 grid gap-8 lg:grid-cols-[80px_1fr]">
             {/* animated vertical line */}
@@ -456,6 +490,7 @@ export default function AboutPage() {
                 className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-[#004FEC] via-[#62efff] to-transparent will-change-transform"
               />
             </div>
+
 
             <div className="grid gap-5">
               {steps.map((step, index) => (
@@ -492,6 +527,7 @@ export default function AboutPage() {
       </section>
 
 
+
       {/* ══════════════ TEAM MINDSET ══════════════ */}
       {/* Purpose: Company culture & character — different from principles */}
       <section className="relative overflow-hidden bg-[#06111d]">
@@ -502,14 +538,13 @@ export default function AboutPage() {
                 Team mindset
               </p>
               <h2 className={`${unbounded.className} max-w-[10ch] text-[clamp(2.2rem,4.8vw,4rem)] font-[500] leading-[0.95] tracking-[-0.05em] text-white`}>
-                Small team. High standards.
+                Professional movers. Personal service.
               </h2>
               <p className="mt-5 max-w-[38ch] text-[15px] leading-[1.9] text-white/64">
-                We are a lean team — which means every job gets real attention,
-                not a call centre script. The people booking your move are the
-                same people responsible for its outcome.
+                We operate as a focused team, which means every booking gets real attention. The people coordinating your move are directly involved in planning, communication, and delivery quality.
               </p>
             </div>
+
 
             <div className="grid gap-5">
               {values.map((item, index) => (
@@ -539,10 +574,12 @@ export default function AboutPage() {
       </section>
 
 
+
       {/* ══════════════ CTA ══════════════ */}
       {/* Purpose: Single clear action — no repeated keywords */}
       <section className="relative overflow-hidden border-t border-white/10 bg-[#07131f]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(34,211,238,0.11),transparent_30%)]" />
+
 
         <div className="site-container relative z-10 py-20 md:py-24">
           <div
@@ -553,19 +590,20 @@ export default function AboutPage() {
             <div className="absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#004FEC]/10 blur-[90px]" />
             <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.10)_1px,transparent_1px)] [background-size:52px_52px]" />
 
+
             <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-[720px]">
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50">
                   Ready to move?
                 </p>
                 <h2 className={`${unbounded.className} text-[clamp(2rem,4.4vw,3.8rem)] font-[500] leading-[0.96] tracking-[-0.05em] text-white`}>
-                  Tell us where you're going. We'll take it from there.
+                  Get a moving quote tailored to your home or business
                 </h2>
                 <p className="mt-5 max-w-[55ch] text-[15px] leading-[1.85] text-white/68">
-                  Get a written quote within 24 hours. No pressure, no vague
-                  numbers — just a plan that actually fits your move.
+                  Tell us your move date, locations, and service needs. We will send a clear written quote within 24 hours for local moves, office relocations, and long-distance moving services.
                 </p>
               </div>
+
 
               <div className="flex flex-wrap gap-4">
                 <Link
@@ -587,6 +625,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
 
     </main>
   );
