@@ -1,21 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { unbounded } from "@/lib/fonts";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const ServicesModelScene = dynamic(() => import("@/components/ServicesModelScene"), {
-  ssr: false,
-  loading: () => (
-    <div className="flex h-full min-h-[320px] w-full items-center justify-center bg-white/40 text-sm text-[#07111d]/60">
-      Loading 3D model...
-    </div>
-  ),
-});
 
 const SERVICES = {
   left: [
@@ -170,7 +160,7 @@ function ServiceItem({
       </div>
 
       <h3
-        className={`${unbounded.className} text-[clamp(1.15rem,1.45vw,1.7rem)] font-[400] leading-[0.98] tracking-[-0.045em] text-[#07111d] transition-transform duration-300 group-hover:translate-y-[-1px]`}
+        className={`${unbounded.className} text-[clamp(1.28rem,1.45vw,1.7rem)] font-[400] leading-[0.98] tracking-[-0.045em] text-[#07111d] transition-transform duration-300 group-hover:translate-y-[-1px]`}
       >
         {title}
       </h3>
@@ -199,6 +189,7 @@ export default function Services() {
   const headingRef = useRef(null);
   const copyRef = useRef(null);
   const imageCardRef = useRef(null);
+  const imageRef = useRef(null);
   const buttonRef = useRef(null);
   const spotlightRef = useRef(null);
   const itemRefs = useRef([]);
@@ -238,6 +229,17 @@ export default function Services() {
         )
         .to(buttonRef.current, { y: 0, opacity: 1, duration: 0.4 }, 0.36);
 
+      gsap.to(imageRef.current, {
+        yPercent: -2.5,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
       const moveSpotlight = (e) => {
         const bounds = section.getBoundingClientRect();
         const x = ((e.clientX - bounds.left) / bounds.width) * 100;
@@ -254,15 +256,15 @@ export default function Services() {
           rotateY: gsap.utils.mapRange(
             0,
             bounds.width,
-            -1.8,
-            1.8,
+            -1.6,
+            1.6,
             e.clientX - bounds.left
           ),
           rotateX: gsap.utils.mapRange(
             0,
             bounds.height,
-            1.3,
-            -1.3,
+            1.2,
+            -1.2,
             e.clientY - bounds.top
           ),
           transformPerspective: 1200,
@@ -375,6 +377,7 @@ export default function Services() {
       ref={sectionRef}
       className="relative overflow-hidden bg-[#ffff] text-[#07111d]"
     >
+      {/* Background grid */}
       <div className="absolute inset-0 opacity-[0.24]">
         <div
           className="absolute inset-0"
@@ -389,14 +392,16 @@ export default function Services() {
         />
       </div>
 
+      {/* Soft spotlight */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
           ref={spotlightRef}
-          className="absolute left-1/2 top-[58%] h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/12 blur-[88px] md:h-[280px] md:w-[280px]"
+          className="absolute left-1/2 top-[58%] h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/12 blur-[88px]"
         />
       </div>
 
       <div className="site-container relative z-10 py-[58px] md:py-[68px]">
+        {/* Heading block */}
         <div className="mx-auto max-w-[700px] text-center">
           <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#07111d]/72">
             Services
@@ -418,7 +423,9 @@ export default function Services() {
           </p>
         </div>
 
+        {/* Main cluster */}
         <div className="mt-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-[280px_minmax(0,420px)_280px] lg:justify-center lg:gap-x-10 xl:grid-cols-[300px_440px_300px] xl:gap-x-14">
+          {/* Left column */}
           <div className="order-2 grid grid-cols-1 gap-8 lg:order-1 lg:pr-4">
             {SERVICES.left.map((item, index) => (
               <ServiceItem
@@ -431,19 +438,26 @@ export default function Services() {
             ))}
           </div>
 
+          {/* Center image */}
           <div className="order-1 lg:order-2">
             <div
               ref={imageCardRef}
-              className="group relative mx-auto w-full max-w-[520px] overflow-hidden rounded-[24px] border border-white/28 bg-white/22 shadow-[0_16px_34px_rgba(7,17,29,0.07)] backdrop-blur-[2px]"
+              className="group relative mx-auto overflow-hidden rounded-[24px] border border-white/28 bg-white/22 shadow-[0_16px_34px_rgba(7,17,29,0.07)] backdrop-blur-[2px]"
             >
               <div className="absolute inset-0 rounded-[24px] ring-1 ring-white/18" />
-              <div className="relative aspect-square overflow-hidden rounded-[24px]">
-                <ServicesModelScene modelPath="/Pibacsu.glb" />
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.02)_48%,rgba(7,17,29,0.06)_100%)]" />
+              <div className="relative aspect-[1/1] overflow-hidden rounded-[24px]">
+                <img
+                  ref={imageRef}
+                  src="/services-center.jpg"
+                  alt="Modern moving service visual"
+                  className="h-full w-full scale-[1.01] object-cover opacity-[0.96] transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.02)_48%,rgba(7,17,29,0.06)_100%)]" />
               </div>
             </div>
           </div>
 
+          {/* Right column */}
           <div className="order-3 grid grid-cols-1 gap-8 lg:pl-4">
             {SERVICES.right.map((item, index) => (
               <ServiceItem
