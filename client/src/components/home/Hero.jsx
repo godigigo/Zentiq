@@ -119,7 +119,7 @@ export default function Hero() {
       <div
         ref={bgRef}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
-        style={{ backgroundImage: "url('/hero-bg1.jpeg')" }}
+        style={{ backgroundImage: "url('/hero.png')" }}
       />
 
       {/* Gradient overlays */}
