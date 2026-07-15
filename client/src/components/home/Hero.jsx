@@ -54,7 +54,7 @@ export default function Hero() {
             duration: 0.95,
             ease: "power4.out",
           },
-          0.18
+          0.18,
         )
         .to(btnsRef.current, { y: 0, opacity: 1, duration: 0.65 }, 0.62)
         .to(copyRef.current, { y: 0, opacity: 1, duration: 0.65 }, 0.8);
@@ -106,7 +106,7 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen w-full overflow-hidden bg-black text-white"
+      className="relative min-h-[100svh] w-full overflow-hidden bg-black text-white"
     >
       <style jsx>{`
         .hero-line-mask {
@@ -134,27 +134,31 @@ export default function Hero() {
         }}
       />
 
-      {/* DESKTOP */}
-      <div className="relative z-10 hidden min-h-screen md:flex md:flex-col md:justify-between">
-        <div className="site-container flex flex-1 flex-col justify-center pt-[120px] pb-[96px]">
-          <div className="max-w-[640px]">
-            <p className="mb-5 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-white/55">
-              <span className="inline-block h-px w-6 bg-[#004FEC]/60" />
+      {/* CONTENT — single responsive layout for all breakpoints */}
+      <div className="relative z-10 flex min-h-[100svh] w-full flex-col justify-between px-4 pb-8 pt-24 sm:px-6 sm:pt-28 md:pb-24 md:pt-[110px] lg:px-10 lg:pt-[120px]">
+        {/* Top / main content */}
+        <div className="mx-auto w-full max-w-[1440px] flex-1 md:flex md:flex-col md:justify-center">
+          <div className="w-full max-w-[92%] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[640px]">
+            <p className="mb-3 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.16em] text-white/50 sm:mb-4 sm:text-[11px] sm:tracking-[0.18em] md:mb-5 md:text-white/55">
+              <span className="inline-block h-px w-5 bg-[#004FEC]/55 sm:w-6 sm:bg-[#004FEC]/60" />
               Canada&apos;s Trusted Movers
             </p>
 
             <h1
               ref={headingRef}
-              className={`${unbounded.className} text-[clamp(3rem,4.4vw,5rem)] font-[400] leading-[1.02] tracking-[-0.045em] text-white`}
+              className={`${unbounded.className} text-[clamp(2.25rem,8vw,5rem)] font-[400] leading-[1.05] tracking-[-0.03em] text-white sm:leading-[1.03] md:leading-[1.02] md:tracking-[-0.045em]`}
             >
               Moving made simple and reliable across Canada
             </h1>
 
-            <div ref={btnsRef} className="mt-10 flex items-center gap-5">
+            <div
+              ref={btnsRef}
+              className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4 md:mt-10 md:gap-5"
+            >
               <a
                 href="/book-appointment"
                 data-cta
-                className="inline-flex h-[46px] items-center justify-center rounded-[10px] bg-[#004FEC] px-6 text-[13px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.3),0_8px_28px_rgba(34,211,238,0.32)] transition-colors duration-200 hover:bg-[#0047D4]"
+                className="inline-flex h-[42px] items-center justify-center rounded-[9px] bg-[#004FEC] px-5 text-[12px] font-semibold text-[#07111d] shadow-[0_0_0_1px_rgba(34,211,238,0.3),0_6px_20px_rgba(34,211,238,0.3)] transition-colors duration-200 hover:bg-[#0047D4] sm:h-[44px] sm:px-5 sm:text-[13px] md:h-[46px] md:px-6 md:shadow-[0_0_0_1px_rgba(34,211,238,0.3),0_8px_28px_rgba(34,211,238,0.32)]"
               >
                 Get Quote
               </a>
@@ -162,12 +166,12 @@ export default function Hero() {
               <a
                 href="/about"
                 data-cta
-                className="group inline-flex h-[46px] items-center justify-center gap-[6px] text-[14px] font-medium text-white/75 transition-colors duration-200 hover:text-white"
+                className="group inline-flex h-[42px] items-center justify-center gap-[5px] text-[13px] font-medium text-white/75 transition-colors duration-200 hover:text-white sm:h-[44px] sm:text-[14px] md:h-[46px] md:gap-[6px]"
               >
                 Learn more
                 <svg
                   viewBox="0 0 16 16"
-                  className="h-[13px] w-[13px] transition-transform duration-200 group-hover:translate-x-[3px]"
+                  className="h-[12px] w-[12px] transition-transform duration-200 group-hover:translate-x-[3px] sm:h-[13px] sm:w-[13px]"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.8"
@@ -181,67 +185,17 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="site-container flex justify-end pb-[58px]">
+        {/* Bottom copy — left aligned on mobile/tablet, right aligned on desktop */}
+        <div className="mx-auto flex w-full max-w-[1440px] justify-start pt-8 md:justify-end md:pt-0">
           <p
             ref={copyRef}
-            className="w-[340px] text-[16px] leading-[1.8] text-white/68 md:text-[17px]"
+            className="max-w-[280px] text-[13px] leading-[1.75] text-white/68 sm:max-w-[320px] sm:text-[15px] sm:leading-[1.78] md:max-w-[340px] md:text-[16px] md:leading-[1.8] lg:text-[17px]"
           >
             We handle every detail of your move with care and precision. From
             local relocations to cross-country journeys, trust us to deliver
             your belongings safely and on time.
           </p>
         </div>
-      </div>
-
-      {/* MOBILE */}
-      <div className="relative z-10 flex min-h-screen flex-col justify-between px-5 pb-10 pt-28 sm:px-6 md:hidden">
-        <div className="max-w-[340px]">
-          <p className="mb-4 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.16em] text-white/50">
-            <span className="inline-block h-px w-5 bg-[#004FEC]/55" />
-            Canada&apos;s Trusted Movers
-          </p>
-
-          <h1
-            className={`${unbounded.className} text-[clamp(2.65rem,10vw,4rem)] font-[400] leading-[1.02] tracking-[-0.045em] text-white`}
-          >
-            Moving made simple and reliable across Canada
-          </h1>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
-              href="book-appointment"
-              data-cta
-              className="inline-flex h-[44px] items-center justify-center rounded-[9px] bg-[#004FEC] px-5 text-[13px] font-semibold text-[#07111d] shadow-[0_6px_20px_rgba(34,211,238,0.28)]"
-            >
-              Get Quote
-            </a>
-
-            <a
-              href="/about"
-              data-cta
-              className="inline-flex h-[44px] items-center justify-center gap-[5px] text-[14px] font-medium text-white/75"
-            >
-              Learn more
-              <svg
-                viewBox="0 0 16 16"
-                className="h-[12px] w-[12px]"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M3 8h10M9 4l4 4-4 4" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <p className="max-w-[300px] text-[14px] leading-[1.78] text-white/68 sm:text-[15px]">
-          We handle every detail of your move with care and precision. From
-          local relocations to cross-country journeys, trust us to deliver your
-          belongings safely and on time.
-        </p>
       </div>
     </section>
   );

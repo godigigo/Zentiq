@@ -277,7 +277,7 @@ export default function AboutPage() {
         <div
           ref={heroBgRef}
           className="absolute inset-[-8%] bg-cover bg-center bg-no-repeat opacity-55 will-change-transform"
-          style={{ backgroundImage: "url('/about-bg.jpg')" }}
+          style={{ backgroundImage: "url('/about-bg.png')" }}
         />
         {/* directional overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(112deg,rgba(4,11,20,0.95)_0%,rgba(4,11,20,0.85)_30%,rgba(4,11,20,0.40)_62%,rgba(4,11,20,0.78)_100%)]" />

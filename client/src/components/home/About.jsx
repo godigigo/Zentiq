@@ -139,7 +139,7 @@ export default function About() {
         <div
           ref={bgRef}
           className="absolute inset-[-8%] bg-cover bg-center bg-no-repeat will-change-transform"
-          style={{ backgroundImage: "url('/about-bg.jpg')" }}
+          style={{ backgroundImage: "url('/about-bg.png')" }}
         />
 
         {/* Overlays */}
