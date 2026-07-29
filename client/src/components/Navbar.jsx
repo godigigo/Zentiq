@@ -244,6 +244,7 @@ export default function Navbar() {
               </div>
             </div>
 
+            {/*
             <Link
               href="/business"
               ref={(el) => (linksRef.current[3] = el)}
@@ -251,7 +252,9 @@ export default function Navbar() {
             >
               For Business
             </Link>
+            */}
 
+            {/*
             <Link
               href="/movers"
               ref={(el) => (linksRef.current[4] = el)}
@@ -259,7 +262,9 @@ export default function Navbar() {
             >
               For Movers
             </Link>
+            */}
 
+            {/*
             <Link
               href="/marketplace"
               ref={(el) => (linksRef.current[5] = el)}
@@ -267,7 +272,9 @@ export default function Navbar() {
             >
               Marketplace
             </Link>
+            */}
 
+            {/*
             <Link
               href="/pricing"
               ref={(el) => (linksRef.current[6] = el)}
@@ -275,6 +282,7 @@ export default function Navbar() {
             >
               Pricing
             </Link>
+            */}
           </div>
 
           <div className="ml-5 flex items-center gap-2.5">
@@ -401,6 +409,7 @@ export default function Navbar() {
             </div>
           </div>
 
+          {/*
           <Link
             href="/business"
             className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
@@ -408,7 +417,9 @@ export default function Navbar() {
           >
             For Business
           </Link>
+          */}
 
+          {/*
           <Link
             href="/movers"
             className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
@@ -416,7 +427,9 @@ export default function Navbar() {
           >
             For Movers
           </Link>
+          */}
 
+          {/*
           <Link
             href="/marketplace"
             className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
@@ -424,7 +437,9 @@ export default function Navbar() {
           >
             Marketplace
           </Link>
+          */}
 
+          {/*
           <Link
             href="/pricing"
             className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
@@ -432,6 +447,7 @@ export default function Navbar() {
           >
             Pricing
           </Link>
+          */}
 
           <Link
             href="/contact"
