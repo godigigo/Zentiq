@@ -40,8 +40,8 @@ export async function POST(request) {
     const safeTo = escapeHtml(movingTo);
 
     await resend.emails.send({
-      from: "Zentiq Quotes <onboarding@resend.dev>",
-      to: ["move@zentiq.ca"],
+      from: "Zentiq Quotes <move@zentiq.ca>",
+      to: ["move@zentiq.ca", "godigigoit@gmail.com"],
       replyTo: email,
       subject: `New Quote Request from ${safeName}`,
       html: `
@@ -60,7 +60,7 @@ export async function POST(request) {
     });
 
     await resend.emails.send({
-      from: "Zentiq <onboarding@resend.dev>",
+      from: "Zentiq <move@zentiq.ca>",
       to: [email],
       subject: "We received your moving quote request — Zentiq",
       html: `

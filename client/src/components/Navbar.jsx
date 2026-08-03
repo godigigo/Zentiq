@@ -143,7 +143,7 @@ export default function Navbar() {
         >
           <div className="relative h-[52px] w-[190px] md:h-[60px] md:w-[220px]">
             <Image
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="Zentiq Logo"
               fill
               sizes="220px"

@@ -44,7 +44,7 @@ export default function Footer() {
             >
               <div className="relative h-[52px] w-[190px]">
                 <Image
-                  src="/logo.jpeg"
+                  src="/logo.png"
                   alt="Zentiq Logo"
                   fill
                   sizes="190px"
