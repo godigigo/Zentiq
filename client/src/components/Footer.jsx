@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { unbounded } from "@/lib/fonts";
+import Image from "next/image";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -18,8 +18,8 @@ const serviceLinks = [
 ];
 
 const contactLinks = [
-  { label: "info@zentiq.ca", href: "mailto:hello@zentiq.com" },
-  { label: "+1 (234) 659-9870", href: "tel:+12346599870" },
+  { label: "move@zentiq.ca", href: "mailto:move@zentiq.ca" },
+  { label: "+18883920013", href: "tel:+18883920013" },
   { label: "Toronto, Ontario, Canada", href: "/contact" },
 ];
 
@@ -39,33 +39,17 @@ export default function Footer() {
           <div className="max-w-[320px]">
             <Link
               href="/"
-              className="inline-flex items-center gap-3 text-white"
+              className="inline-flex items-center"
               aria-label="Zentiq Home"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-[#004FEC] text-[#07111d] shadow-[0_10px_25px_rgba(34,211,238,0.20)]">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-[18px] w-[18px]"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.1"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 17 12 7l7 10" />
-                  <path d="M8.5 17h7" />
-                </svg>
-              </div>
-
-              <div className="flex flex-col">
-                <span
-                  className={`${unbounded.className} text-[1rem] font-[500] leading-none tracking-[-0.05em] text-white`}
-                >
-                  Zentiq
-                </span>
-                <span className="mt-1 text-[10px] uppercase tracking-[0.22em] text-white/55">
-                  Moving Company
-                </span>
+              <div className="relative h-[52px] w-[190px]">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Zentiq Logo"
+                  fill
+                  sizes="190px"
+                  className="object-contain"
+                />
               </div>
             </Link>
 
@@ -140,9 +124,7 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h3
-              className={`${unbounded.className} text-[1rem] font-[500] leading-none tracking-[-0.04em] text-white`}
-            >
+            <h3 className="text-[1rem] font-[500] leading-none tracking-[-0.04em] text-white">
               Quick Links
             </h3>
 
@@ -161,9 +143,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3
-              className={`${unbounded.className} text-[1rem] font-[500] leading-none tracking-[-0.04em] text-white`}
-            >
+            <h3 className="text-[1rem] font-[500] leading-none tracking-[-0.04em] text-white">
               Services
             </h3>
 
@@ -182,9 +162,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3
-              className={`${unbounded.className} text-[1rem] font-[500] leading-none tracking-[-0.04em] text-white`}
-            >
+            <h3 className="text-[1rem] font-[500] leading-none tracking-[-0.04em] text-white">
               Contact
             </h3>
 

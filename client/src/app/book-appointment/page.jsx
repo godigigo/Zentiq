@@ -41,13 +41,13 @@ const locationSuggestions = [
 const contactInfo = [
   {
     label: "Email",
-    value: "info@zentiq.ca",
-    href: "mailto:info@zentiq.ca",
+    value: "move@zentiq.ca",
+    href: "mailto:move@zentiq.ca",
   },
   {
     label: "Phone",
-    value: "+1 (234) 659-9870",
-    href: "tel:+12346599870",
+    value: " +18883920013",
+    href: "tel:+18883920013",
   },
   {
     label: "Location",
@@ -94,6 +94,7 @@ export default function GetQuotePage() {
   const [toOpen, setToOpen] = useState(false);
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const minDate = useMemo(() => {
     const d = new Date();
@@ -143,7 +144,7 @@ export default function GetQuotePage() {
   }, []);
 
   const handleSubmit = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
       setError("");
       setSubmitted(false);
@@ -166,8 +167,37 @@ export default function GetQuotePage() {
         }
       }
 
-      setSubmitted(true);
-      console.log("Quote lead:", formData);
+      setLoading(true);
+
+      try {
+        const res = await fetch("/api/quote", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          setError(data.error || "Something went wrong. Please try again.");
+          setLoading(false);
+          return;
+        }
+
+        setSubmitted(true);
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          date: "",
+          movingFrom: "",
+          movingTo: "",
+        });
+      } catch (err) {
+        setError("Network error. Please check your connection and try again.");
+      } finally {
+        setLoading(false);
+      }
     },
     [formData, minDate]
   );
@@ -566,15 +596,16 @@ export default function GetQuotePage() {
 
                   <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
                     <p className="text-[11px] leading-relaxed text-white/36">
-                      Yourr Data is Safe with us.
+                      Your data is safe with us.
                     </p>
 
                     <button
                       ref={(el) => (magneticRefs.current[2] = el)}
                       type="submit"
-                      className="inline-flex h-[50px] shrink-0 items-center justify-center rounded-[15px] bg-[#004FEC] px-7 text-[13px] font-semibold text-[#07111d] shadow-[0_14px_34px_rgba(34,211,238,0.26)] transition duration-200 hover:bg-[#43dff4] hover:shadow-[0_18px_40px_rgba(34,211,238,0.34)]"
+                      disabled={loading}
+                      className="inline-flex h-[50px] shrink-0 items-center justify-center rounded-[15px] bg-[#004FEC] px-7 text-[13px] font-semibold text-[#07111d] shadow-[0_14px_34px_rgba(34,211,238,0.26)] transition duration-200 hover:bg-[#43dff4] hover:shadow-[0_18px_40px_rgba(34,211,238,0.34)] disabled:cursor-not-allowed disabled:opacity-60"
                     >
-                      Submit Quote Request
+                      {loading ? "Sending..." : "Submit Quote Request"}
                     </button>
                   </div>
                 </form>

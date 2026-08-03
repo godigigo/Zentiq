@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
-import { unbounded } from "@/lib/fonts";
 
 const services = [
   { label: "Local Movers", href: "/services/local-movers" },
@@ -138,33 +138,18 @@ export default function Navbar() {
         <Link
           href="/"
           ref={logoRef}
-          className="flex shrink-0 items-center gap-3 text-white"
+          className="flex shrink-0 items-center"
           aria-label="Zentiq Home"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-[12px] bg-[#004FEC] text-[#07111d] shadow-[0_8px_24px_rgba(34,211,238,0.22)] md:h-10 md:w-10">
-            <svg
-              viewBox="0 0 24 24"
-              className="h-[17px] w-[17px]"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.1"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 17 12 7l7 10" />
-              <path d="M8.5 17h7" />
-            </svg>
-          </div>
-
-          <div className="flex flex-col">
-            <span
-              className={`${unbounded.className} text-[0.94rem] font-[500] leading-none tracking-[-0.05em] text-white`}
-            >
-              Zentiq
-            </span>
-            <span className="mt-1 text-[9px] uppercase tracking-[0.24em] text-white/62">
-              Moving Company
-            </span>
+          <div className="relative h-[52px] w-[190px] md:h-[60px] md:w-[220px]">
+            <Image
+              src="/logo.jpeg"
+              alt="Zentiq Logo"
+              fill
+              sizes="220px"
+              className="object-contain"
+              priority
+            />
           </div>
         </Link>
 
@@ -243,46 +228,6 @@ export default function Navbar() {
                 ))}
               </div>
             </div>
-
-            {/*
-            <Link
-              href="/business"
-              ref={(el) => (linksRef.current[3] = el)}
-              className="inline-flex h-[38px] items-center rounded-[10px] px-3.5 text-[13px] font-medium text-white/90 transition-all duration-200 hover:bg-white/8 hover:text-white"
-            >
-              For Business
-            </Link>
-            */}
-
-            {/*
-            <Link
-              href="/movers"
-              ref={(el) => (linksRef.current[4] = el)}
-              className="inline-flex h-[38px] items-center rounded-[10px] px-3.5 text-[13px] font-medium text-white/90 transition-all duration-200 hover:bg-white/8 hover:text-white"
-            >
-              For Movers
-            </Link>
-            */}
-
-            {/*
-            <Link
-              href="/marketplace"
-              ref={(el) => (linksRef.current[5] = el)}
-              className="inline-flex h-[38px] items-center rounded-[10px] px-3.5 text-[13px] font-medium text-white/90 transition-all duration-200 hover:bg-white/8 hover:text-white"
-            >
-              Marketplace
-            </Link>
-            */}
-
-            {/*
-            <Link
-              href="/pricing"
-              ref={(el) => (linksRef.current[6] = el)}
-              className="inline-flex h-[38px] items-center rounded-[10px] px-3.5 text-[13px] font-medium text-white/90 transition-all duration-200 hover:bg-white/8 hover:text-white"
-            >
-              Pricing
-            </Link>
-            */}
           </div>
 
           <div className="ml-5 flex items-center gap-2.5">
@@ -408,46 +353,6 @@ export default function Navbar() {
               ))}
             </div>
           </div>
-
-          {/*
-          <Link
-            href="/business"
-            className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
-            onClick={() => setMobileOpen(false)}
-          >
-            For Business
-          </Link>
-          */}
-
-          {/*
-          <Link
-            href="/movers"
-            className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
-            onClick={() => setMobileOpen(false)}
-          >
-            For Movers
-          </Link>
-          */}
-
-          {/*
-          <Link
-            href="/marketplace"
-            className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
-            onClick={() => setMobileOpen(false)}
-          >
-            Marketplace
-          </Link>
-          */}
-
-          {/*
-          <Link
-            href="/pricing"
-            className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
-            onClick={() => setMobileOpen(false)}
-          >
-            Pricing
-          </Link>
-          */}
 
           <Link
             href="/contact"
