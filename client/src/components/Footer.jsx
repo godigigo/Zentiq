@@ -42,7 +42,7 @@ export default function Footer() {
               className="inline-flex items-center"
               aria-label="Zentiq Home"
             >
-              <div className="relative h-[52px] w-[190px]">
+              <div className="relative h-[120px] w-[150px]">
                 <Image
                   src="/logo.png"
                   alt="Zentiq Logo"

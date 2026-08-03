@@ -141,7 +141,7 @@ export default function Navbar() {
           className="flex shrink-0 items-center"
           aria-label="Zentiq Home"
         >
-          <div className="relative h-[52px] w-[190px] md:h-[60px] md:w-[220px]">
+          <div className="relative h-[52px] w-[190px] md:h-[95px] md:w-[120px]">
             <Image
               src="/logo.png"
               alt="Zentiq Logo"
