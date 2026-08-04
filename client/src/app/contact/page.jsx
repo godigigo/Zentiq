@@ -11,17 +11,17 @@ gsap.registerPlugin(ScrollTrigger);
 const contactItems = [
   {
     label: "Phone",
-    value: "+1 (234) 659-9870",
-    href: "tel:+12346599870",
+    value: "+18883920013",
+    href: "tel:+18883920013",
   },
   {
     label: "Email",
-    value: "info@zentiq.ca",
-    href: "mailto:hello@zentiq.com",
+    value: "move@zentiq.ca",
+    href: "mailto:move@zentiq.com",
   },
   {
     label: "Address",
-    value: "Toronto, Ontario, Canada",
+    value: "Zentiq Inc. 1338 Wellington St. WOttawa Ontario K1Y 3B7 Canada",
     href: "/contact",
   },
 ];

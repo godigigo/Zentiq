@@ -6,21 +6,22 @@ import Image from "next/image";
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services" },
   { label: "Contact Us", href: "/contact" },
 ];
 
 const serviceLinks = [
-  { label: "Residential Moving", href: "/services/residential-moving" },
-  { label: "Commercial Moving", href: "/services/commercial-moving" },
-  { label: "Long Distance Moving", href: "/services/long-distance-moving" },
-  { label: "Packing & Storage", href: "/services/packing-storage" },
+  { label: "Local Movers", href: "/services/local-movers" },
+  { label: "Long Distance Movers", href: "/services/long-distance-movers" },
+  { label: "Packing Services", href: "/services/packing-services" },
+  { label: "Moving Supplies", href: "/services/moving-supplies" },
+  { label: "Junk Removal", href: "/services/junk-removal" },
+  { label: "Storage Services", href: "/services/storage-services" },
 ];
 
 const contactLinks = [
   { label: "move@zentiq.ca", href: "mailto:move@zentiq.ca" },
   { label: "+18883920013", href: "tel:+18883920013" },
-  { label: "Toronto, Ontario, Canada", href: "/contact" },
+  { label: "Zentiq Inc.1338 Wellington St. WOttawa Ontario K1Y 3B7 Canada", href: "/contact" },
 ];
 
 export default function Footer() {
@@ -183,7 +184,7 @@ export default function Footer() {
                 Open Hours
               </p>
               <p className="mt-2 text-[14px] text-white/72">
-                Mon - Sat: 8:00 AM - 8:00 PM
+                Mon - Fri: 8:00 AM - 8:00 PM
               </p>
             </div>
           </div>

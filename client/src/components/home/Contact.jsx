@@ -11,8 +11,8 @@ const CONTACT_ITEMS = {
   email: {
     title: "Email",
     text: "Send us a message anytime",
-    value: "hello@example.com",
-    href: "mailto:hello@example.com",
+    value: "move@zentiq.ca",
+    href: "mailto:move@zentiq.ca",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -31,8 +31,8 @@ const CONTACT_ITEMS = {
   phone: {
     title: "Phone",
     text: "Speak with a moving specialist",
-    value: "+123465987",
-    href: "tel:+123465987",
+    value: "+18883920013",
+    href: "tel:+18883920013",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -49,7 +49,7 @@ const CONTACT_ITEMS = {
   },
   office: {
     title: "Office",
-    text: "1247 XYZ Road West, ABC FL 34207",
+    text: "Zentiq Inc.1338 Wellington St. WOttawa Ontario K1Y 3B7 Canada",
     value: "Get directions",
     href: "#",
     icon: (
@@ -289,7 +289,7 @@ export default function ContactSection() {
                     <input
                       type="email"
                       name="email"
-                      placeholder="hello@example.com"
+                      placeholder="move@zentiq.ca"
                       className="h-[46px] w-full rounded-[14px] border border-[#07111d]/10 bg-white/80 px-4 text-[14px] text-[#07111d] outline-none transition-all duration-200 placeholder:text-[#07111d]/36 focus:border-[#07111d]/22 focus:bg-white focus:shadow-[0_0_0_4px_rgba(7,17,29,0.04)]"
                     />
                   </label>

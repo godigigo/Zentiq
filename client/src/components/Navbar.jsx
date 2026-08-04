@@ -244,7 +244,7 @@ export default function Navbar() {
               className="flex items-center gap-1"
             >
               <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/zentiq.ca"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -284,36 +284,79 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* ── Mobile Hamburger ── */}
-        <button
-          type="button"
-          onClick={() => setMobileOpen((prev) => !prev)}
-          className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-[12px] border border-white/12 bg-white/5 text-white transition-all duration-200 hover:bg-white/10 lg:hidden"
-          aria-label="Toggle navigation menu"
-          aria-expanded={mobileOpen}
-        >
-          <svg
-            viewBox="0 0 24 24"
-            className="h-[18px] w-[18px]"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
+        {/* ── Mobile Social + Hamburger ── */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-1">
+            <Link
+              href="https://www.instagram.com/zentiq.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-[10px] text-white/68 transition-all duration-200 hover:bg-white/6 hover:text-white"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-[15px] w-[15px]"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.9"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+                <path d="M16.5 7.5h.01" />
+                <circle cx="12" cy="12" r="4" />
+              </svg>
+            </Link>
+
+            <Link
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="inline-flex h-[36px] w-[36px] items-center justify-center rounded-[10px] text-white/68 transition-all duration-200 hover:bg-white/6 hover:text-white"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-[15px] w-[15px]"
+                fill="currentColor"
+              >
+                <path d="M13.5 21v-7h2.3l.4-2.7h-2.7V9.6c0-.8.2-1.3 1.4-1.3H16V5.9c-.2 0-.9-.1-1.8-.1-1.8 0-3.1 1.1-3.1 3.2v2.3H9v2.7h2.3v7h2.2Z" />
+              </svg>
+            </Link>
+          </div>
+
+          {/* ── Mobile Hamburger ── */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-[12px] border border-white/12 bg-white/5 text-white transition-all duration-200 hover:bg-white/10"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileOpen}
           >
-            {mobileOpen ? (
-              <>
-                <path d="M6 6l12 12" />
-                <path d="M18 6 6 18" />
-              </>
-            ) : (
-              <>
-                <path d="M4 7h16" />
-                <path d="M4 12h16" />
-                <path d="M4 17h16" />
-              </>
-            )}
-          </svg>
-        </button>
+            <svg
+              viewBox="0 0 24 24"
+              className="h-[18px] w-[18px]"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            >
+              {mobileOpen ? (
+                <>
+                  <path d="M6 6l12 12" />
+                  <path d="M18 6 6 18" />
+                </>
+              ) : (
+                <>
+                  <path d="M4 7h16" />
+                  <path d="M4 12h16" />
+                  <path d="M4 17h16" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
       </nav>
 
       {/* ── Mobile Panel ── */}
@@ -361,42 +404,6 @@ export default function Navbar() {
           >
             Contact Us
           </Link>
-
-          <div className="mt-3 flex items-center gap-1 px-1">
-            <Link
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-[10px] text-white/68 transition-all duration-200 hover:bg-white/6 hover:text-white"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                className="h-[15px] w-[15px]"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.9"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
-                <path d="M16.5 7.5h.01" />
-                <circle cx="12" cy="12" r="4" />
-              </svg>
-            </Link>
-
-            <Link
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-[10px] text-white/68 transition-all duration-200 hover:bg-white/6 hover:text-white"
-            >
-              <svg viewBox="0 0 24 24" className="h-[15px] w-[15px]" fill="currentColor">
-                <path d="M13.5 21v-7h2.3l.4-2.7h-2.7V9.6c0-.8.2-1.3 1.4-1.3H16V5.9c-.2 0-.9-.1-1.8-.1-1.8 0-3.1 1.1-3.1 3.2v2.3H9v2.7h2.3v7h2.2Z" />
-              </svg>
-            </Link>
-          </div>
         </div>
       </div>
     </header>
