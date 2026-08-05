@@ -86,6 +86,8 @@ export default function GetQuotePage() {
     date: "",
     movingFrom: "",
     movingTo: "",
+    moveSize: "",
+    notes: "",
   });
 
   const [fromSuggestions, setFromSuggestions] = useState([]);
@@ -192,6 +194,8 @@ export default function GetQuotePage() {
           date: "",
           movingFrom: "",
           movingTo: "",
+          moveSize: "",
+          notes: "",
         });
       } catch (err) {
         setError("Network error. Please check your connection and try again.");
@@ -523,7 +527,7 @@ export default function GetQuotePage() {
                   </label>
 
                   <label className="flex flex-col gap-2">
-                    <FieldLabel>Moving Form</FieldLabel>
+                    <FieldLabel>Moving From</FieldLabel>
                     <div className="relative">
                       <CyberInput>
                         <input
@@ -592,6 +596,34 @@ export default function GetQuotePage() {
                         </div>
                       ) : null}
                     </div>
+                  </label>
+
+                  <label className="flex flex-col gap-2">
+                    <FieldLabel>Move Size (Optional)</FieldLabel>
+                    <CyberInput>
+                      <input
+                        type="text"
+                        name="moveSize"
+                        value={formData.moveSize}
+                        onChange={handleChange}
+                        placeholder="e.g. 2 Bedroom, 3 Bedroom, Studio"
+                        className="h-[52px] w-full bg-transparent px-4 text-[14px] text-white placeholder:text-white/30 outline-none"
+                      />
+                    </CyberInput>
+                  </label>
+
+                  <label className="flex flex-col gap-2">
+                    <FieldLabel>Additional Notes (Optional)</FieldLabel>
+                    <CyberInput>
+                      <textarea
+                        name="notes"
+                        value={formData.notes}
+                        onChange={handleChange}
+                        placeholder="Tell us about your move (piano, elevator, stairs, etc.)"
+                        rows={4}
+                        className="w-full resize-none bg-transparent px-4 py-3 text-[14px] text-white placeholder:text-white/30 outline-none"
+                      />
+                    </CyberInput>
                   </label>
 
                   <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
