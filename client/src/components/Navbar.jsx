@@ -172,6 +172,14 @@ export default function Navbar() {
               About Us
             </Link>
 
+            <Link
+              href="/blog"
+              ref={(el) => (linksRef.current[3] = el)}
+              className="inline-flex h-[38px] items-center rounded-[10px] px-3.5 text-[13px] font-medium text-white/90 transition-all duration-200 hover:bg-white/8 hover:text-white"
+            >
+              Blog
+            </Link>
+
             <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
@@ -379,6 +387,14 @@ export default function Navbar() {
             onClick={() => setMobileOpen(false)}
           >
             About Us
+          </Link>
+
+          <Link
+            href="/blog"
+            className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white/90 transition-colors duration-200 hover:bg-white/8 hover:text-white"
+            onClick={() => setMobileOpen(false)}
+          >
+            Blog
           </Link>
 
           <div className="rounded-[12px] px-4 py-3 text-[14px] font-medium text-white">
