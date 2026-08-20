@@ -19,14 +19,14 @@ const services = [
   {
     number: "02",
     label: "Long Distance Movers",
-    href: "/services/long-dsitance-movers",
+    href: "/services/long-distance-movers",
     text: "Structured intercity and cross-province relocations with clear milestones.",
     tag: "Long haul",
   },
   {
     number: "03",
     label: "Office Relocation",
-    href: "/services/office-relocation",
+    href: "/business",
     text: "Business and workspace moves planned around minimal operational downtime.",
     tag: "Commercial",
   },
