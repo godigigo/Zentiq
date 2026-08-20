@@ -26,7 +26,7 @@ const services = [
   {
     number: "03",
     label: "Office Relocation",
-    href: "/business",
+    href: "/office-relocation",
     text: "Business and workspace moves planned around minimal operational downtime.",
     tag: "Commercial",
   },
