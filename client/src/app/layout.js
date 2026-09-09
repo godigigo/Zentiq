@@ -3,6 +3,7 @@ import { karla } from "@/lib/fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "Zentiq",
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <Footer />
+        <Analytics />
 
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-TR3H4VBT6Q"
